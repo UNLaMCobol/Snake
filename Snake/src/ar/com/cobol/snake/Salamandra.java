@@ -13,6 +13,7 @@ public class Salamandra {
 	
 	public Salamandra() {
 		this.cuerpo = new ArrayList<Punto>();
+		this.estado = new Normal();
 	}
 
 	public List<Punto> getCuerpo() {

@@ -11,10 +11,12 @@ public class Salamandra {
 	private double velocidad;
 	private Estado estado;
 	
-	public Salamandra() {
+	public Salamandra(Punto p) {
 		this.cuerpo = new ArrayList<Punto>();
 		this.estado = new Normal();
+		this.cuerpo.add(p);
 	}
+	
 
 	public List<Punto> getCuerpo() {
 		return cuerpo;

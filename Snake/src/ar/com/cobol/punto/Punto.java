@@ -1,17 +1,21 @@
 package ar.com.cobol.punto;
 
 public class Punto {
-	
+
 	private int x, y;
-	
+
 	public Punto(int x, int y) {
 		this.x = x;
 		this.y = y;
 	}
-	
+
 	public void resetXY(int x, int y) {
 		this.x = x;
 		this.y = y;
+	}
+
+	public double distanciaCon(Punto p) {
+		return (double) Math.sqrt(Math.pow(this.x - p.x, 2) + Math.pow(this.y - p.y, 2));
 	}
 
 	public int getX() {
@@ -29,7 +33,5 @@ public class Punto {
 	public void setY(int y) {
 		this.y = y;
 	}
-	
-	
 
 }

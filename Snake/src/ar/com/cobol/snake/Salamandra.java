@@ -15,11 +15,12 @@ public class Salamandra {
 		this.cuerpo = new ArrayList<Punto>();
 		this.estado = new Normal();
 		this.cuerpo.add(p);
+		this.cuerpo.add(new Punto(p.getX()-1, p.getY()));
 	}
 	
 
 	public List<Punto> getCuerpo() {
-		return cuerpo;
+		return  cuerpo;
 	}
 
 	public void setCuerpo(List<Punto> cuerpo) {
@@ -41,6 +42,25 @@ public class Salamandra {
 	public void setEstado(Estado estado) {
 		this.estado = estado;
 	}
+	
+	/**
+	 * 
+	 * @param p es el punto que se le asignará a la cabeza
+	 * 
+	 * Este metodo le asigna p a la cabeza y 
+	 * el punto de la cabeza se lo asigna a la siguente parte del cuerpo
+	 *  
+	 */
+//	public void addParteDelCuerpo(Punto p) {
+//		Punto puntoCuerpo = new Punto(this.getCuerpo().get(0).getX(), this.getCuerpo().get(0).getY());
+//		this.getCuerpo().get(0).resetXY(p.getX(), p.getY());
+//		for (int i = 1; i < this.getCuerpo().size() - 1; i++) {
+//			
+//		}
+//		
+//		
+//		this.getCuerpo().add(puntoCuerpo);
+//	}
 	
 	
 	

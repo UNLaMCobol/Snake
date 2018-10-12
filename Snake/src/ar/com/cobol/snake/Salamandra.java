@@ -7,15 +7,30 @@ import ar.com.cobol.punto.Punto;
 
 public class Salamandra {
 	
+	private static final int IZQUIERDA = 1;
+	private static final int DERECHA = 2;
+	private static final int ARRIBA = 3;
+	private static final int ABAJO = 4;
+
 	private List<Punto> cuerpo;
 	private double velocidad;
 	private Estado estado;
-	
-	public Salamandra(Punto p) {
+
+	public Salamandra(Punto p, int tam, int direc) {
 		this.cuerpo = new ArrayList<Punto>();
 		this.estado = new Normal();
-		this.cuerpo.add(p);
-		this.cuerpo.add(new Punto(p.getX()-1, p.getY()));
+		for (int i = 0; i < tam; i++) {
+			if (IZQUIERDA == direc)
+				this.cuerpo.add(p.generarBufanda(new Punto(-i, 0)));
+			if (DERECHA == direc)
+				this.cuerpo.add(p.generarBufanda(new Punto(i, 0)));
+			if (ARRIBA == direc)
+				this.cuerpo.add(p.generarBufanda(new Punto(0, i)));
+			if (ABAJO == direc)
+				this.cuerpo.add(p.generarBufanda(new Punto(0, -i)));
+		}
+		// this.cuerpo.add(p);
+		// this.cuerpo.add(new Punto(p.getX()-1, p.getY()));
 	}
 	
 

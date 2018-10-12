@@ -34,4 +34,12 @@ public class Punto {
 		this.y = y;
 	}
 
+	public Punto generarBufanda(Punto punto) {
+		return new Punto(this.getX() + punto.getX(), this.getY() + punto.getY());
+	}
+
+	public String mostrarPunto() {
+		return "( " + x + " , " + y + " )";		
+	}
+
 }

@@ -2,11 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b989f630-3773-42bb-988d-c220fc693c80" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/ar/com/cobol/SalamandraGame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ar/com/cobol/mapa/MapaNormal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/ar/com/cobol/mapa/testMapa.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ar/com/cobol/mapa/Fruta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/com/cobol/mapa/Fruta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ar/com/cobol/mapa/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/com/cobol/mapa/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheSalamander.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TheSalamander.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ar/com/cobol/mapa/Fruta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/com/cobol/item/Fruta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ar/com/cobol/mapa/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/com/cobol/item/Item.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ar/com/cobol/mapa/Mapa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/com/cobol/mapa/Mapa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ar/com/cobol/mapa/Pared.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/com/cobol/item/Pared.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ar/com/cobol/punto/Punto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/com/cobol/punto/Punto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ar/com/cobol/resources/directionUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/com/cobol/resources/directionUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ar/com/cobol/snake/Estado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/com/cobol/snake/Estado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ar/com/cobol/snake/Muerto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/com/cobol/snake/Muerto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ar/com/cobol/snake/Normal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/com/cobol/snake/Normal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ar/com/cobol/snake/Salamandra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/com/cobol/snake/Salamandra.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ar/com/cobol/snake/SuperSaiyajin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ar/com/cobol/snake/SuperSaiyajin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ar/com/cobol/test/testSalamandra.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ar/com/cobol/testSalamandra.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,135 +32,80 @@
       <usages-collector id="statistics.lifecycle.project">
         <counts>
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="11" />
+          <entry key="java" value="26" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="11" />
+          <entry key="JAVA" value="26" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="3086" />
+          <entry key="java" value="5117" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="3086" />
+          <entry key="JAVA" value="5117" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ar/com/cobol/snake/Salamandra.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4">
-              <caret line="81" lean-forward="true" selection-start-line="81" selection-end-line="81" />
+            <state relative-caret-position="330">
+              <caret line="28" column="67" selection-start-line="28" selection-start-column="67" selection-end-line="28" selection-end-column="67" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1067#1068#0" expanded="true" />
-                <element signature="e#1088#1089#0" expanded="true" />
-                <element signature="e#1134#1135#0" expanded="true" />
-                <element signature="e#1161#1162#0" expanded="true" />
-                <element signature="e#1194#1195#0" expanded="true" />
-                <element signature="e#1217#1218#0" expanded="true" />
-                <element signature="e#1264#1265#0" expanded="true" />
-                <element signature="e#1297#1298#0" expanded="true" />
-                <element signature="e#1327#1328#0" expanded="true" />
-                <element signature="e#1347#1348#0" expanded="true" />
-                <element signature="e#1388#1389#0" expanded="true" />
-                <element signature="e#1415#1416#0" expanded="true" />
-                <element signature="e#1781#1782#0" expanded="true" />
-                <element signature="e#1809#1810#0" expanded="true" />
-                <element signature="e#1845#1846#0" expanded="true" />
-                <element signature="e#1884#1885#0" expanded="true" />
-                <element signature="e#2060#2061#0" expanded="true" />
-                <element signature="e#2090#2091#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ar/com/cobol/resources/directionUtils.java">
+        <entry file="file://$PROJECT_DIR$/src/ar/com/cobol/mapa/Mapa.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ar/com/cobol/mapa/Item.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+            <state relative-caret-position="240">
+              <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#185#186#0" expanded="true" />
-                <element signature="e#222#223#0" expanded="true" />
-                <element signature="e#239#240#0" expanded="true" />
-                <element signature="e#270#271#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ar/com/cobol/mapa/Pared.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="33" lean-forward="true" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#165#166#0" expanded="true" />
-                <element signature="e#184#185#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ar/com/cobol/mapa/Mapa.java">
+        <entry file="file://$PROJECT_DIR$/src/ar/com/cobol/mapa/MapaNormal.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+            <state relative-caret-position="372">
+              <caret line="36" column="38" selection-start-line="36" selection-start-column="38" selection-end-line="36" selection-end-column="38" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#160#161#0" expanded="true" />
+                <element signature="e#205#206#0" expanded="true" />
+                <element signature="e#239#240#0" expanded="true" />
+                <element signature="e#265#266#0" expanded="true" />
+                <element signature="e#297#298#0" expanded="true" />
+                <element signature="e#324#325#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ar/com/cobol/mapa/Fruta.java">
+        <entry file="file://$PROJECT_DIR$/src/ar/com/cobol/SalamandraGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#123#124#0" expanded="true" />
-                <element signature="e#145#146#0" expanded="true" />
-                <element signature="e#164#165#0" expanded="true" />
-                <element signature="e#210#211#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ar/com/cobol/snake/Estado.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
+            <state relative-caret-position="45">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
@@ -161,6 +118,17 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>velocidad</find>
+      <find>generarBufanda</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+      <replace>modifVelocidad</replace>
+      <replace>generarPuntoAdyacente</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -175,13 +143,22 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/ar/com/cobol/snake/Estado.java" />
         <option value="$PROJECT_DIR$/src/ar/com/cobol/mapa/Pared.java" />
-        <option value="$PROJECT_DIR$/src/ar/com/cobol/resources/directionUtils.java" />
         <option value="$PROJECT_DIR$/src/ar/com/cobol/mapa/Item.java" />
         <option value="$PROJECT_DIR$/src/ar/com/cobol/mapa/Fruta.java" />
+        <option value="$PROJECT_DIR$/src/ar/com/cobol/snake/Estado.java" />
+        <option value="$PROJECT_DIR$/src/ar/com/cobol/resources/directionUtils.java" />
+        <option value="$PROJECT_DIR$/src/ar/com/cobol/snake/SuperSaiyajin.java" />
+        <option value="$PROJECT_DIR$/src/ar/com/cobol/snake/Muerto.java" />
+        <option value="$PROJECT_DIR$/src/ar/com/cobol/snake/Normal.java" />
         <option value="$PROJECT_DIR$/src/ar/com/cobol/snake/Salamandra.java" />
+        <option value="$PROJECT_DIR$/src/ar/com/cobol/punto/Punto.java" />
+        <option value="$PROJECT_DIR$/src/ar/com/cobol/SalamandraGame.java" />
+        <option value="$PROJECT_DIR$/src/ar/com/cobol/item/Pared.java" />
+        <option value="$PROJECT_DIR$/test/ar/com/cobol/test/testSalamandra.java" />
         <option value="$PROJECT_DIR$/src/ar/com/cobol/mapa/Mapa.java" />
+        <option value="$PROJECT_DIR$/src/ar/com/cobol/mapa/MapaNormal.java" />
+        <option value="$PROJECT_DIR$/test/ar/com/cobol/mapa/testMapa.java" />
       </list>
     </option>
   </component>
@@ -191,7 +168,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
     <option name="width" value="1440" />
     <option name="height" value="900" />
   </component>
@@ -201,7 +178,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -225,33 +201,41 @@
               <item name="Snake" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="cobol" type="462c0819:PsiDirectoryNode" />
+              <item name="item" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TheSalamander" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Snake" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="cobol" type="462c0819:PsiDirectoryNode" />
               <item name="mapa" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TheSalamander" type="b2602c69:ProjectViewProjectNode" />
               <item name="Snake" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="cobol" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TheSalamander" type="b2602c69:ProjectViewProjectNode" />
               <item name="Snake" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="cobol" type="462c0819:PsiDirectoryNode" />
-              <item name="snake" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539402683096" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539437436225" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -271,6 +255,63 @@
       </list>
     </option>
   </component>
+  <component name="RunManager" selected="JUnit.testMapa">
+    <configuration name="MapaNormal" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ar.com.cobol.mapa.MapaNormal" />
+      <module name="TheSalamander" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ar.com.cobol.mapa.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="testMapa" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TheSalamander" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ar.com.cobol.mapa.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ar.com.cobol.mapa" />
+      <option name="MAIN_CLASS_NAME" value="ar.com.cobol.mapa.testMapa" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="testMapa.seCreoCorrectamenteElMapaNormal" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TheSalamander" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ar.com.cobol.mapa.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ar.com.cobol.mapa" />
+      <option name="MAIN_CLASS_NAME" value="ar.com.cobol.mapa.testMapa" />
+      <option name="METHOD_NAME" value="seCreoCorrectamenteElMapaNormal" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.MapaNormal" />
+      <item itemvalue="JUnit.testMapa.seCreoCorrectamenteElMapaNormal" />
+      <item itemvalue="JUnit.testMapa" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.testMapa" />
+        <item itemvalue="JUnit.testMapa.seCreoCorrectamenteElMapaNormal" />
+        <item itemvalue="Application.MapaNormal" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -281,44 +322,72 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1539386875006</updated>
-      <workItem from="1539386880310" duration="9429000" />
+      <workItem from="1539386880310" duration="13313000" />
+      <workItem from="1539432128342" duration="2662000" />
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="testMapa_seCreoCorrectamenteElMapaNormal - 2018.10.13 at 09h 29m 39s.xml">
+      <configuration name="testMapa.seCreoCorrectamenteElMapaNormal" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="testMapa_seCreoCorrectamenteElMapaNormal - 2018.10.13 at 09h 29m 51s.xml">
+      <configuration name="testMapa.seCreoCorrectamenteElMapaNormal" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="testMapa_seCreoCorrectamenteElMapaNormal - 2018.10.13 at 09h 29m 58s.xml">
+      <configuration name="testMapa.seCreoCorrectamenteElMapaNormal" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="testMapa_seCreoCorrectamenteElMapaNormal - 2018.10.13 at 09h 30m 06s.xml">
+      <configuration name="testMapa.seCreoCorrectamenteElMapaNormal" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="testMapa_seCreoCorrectamenteElMapaNormal - 2018.10.13 at 09h 34m 11s.xml">
+      <configuration name="testMapa.seCreoCorrectamenteElMapaNormal" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="testMapa - 2018.10.13 at 09h 41m 42s.xml">
+      <configuration name="testMapa" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="testMapa - 2018.10.13 at 09h 42m 05s.xml">
+      <configuration name="testMapa" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="testMapa - 2018.10.13 at 09h 42m 10s.xml">
+      <configuration name="testMapa" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9429000" />
+    <option name="totallyTimeSpent" value="15975000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Image Layers" />
-      <window_info id="Designer" />
-      <window_info id="UI Designer" />
-      <window_info id="Capture Tool" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24964234" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2532189" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.1313253" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" weight="0.32891566" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32891566" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Database" />
-      <window_info anchor="right" id="Maven Projects" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.1313253" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="right" id="Maven Projects" order="8" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -328,119 +397,142 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/ar/com/cobol/snake/Normal.java">
+    <entry file="file://$PROJECT_DIR$/src/ar/com/cobol/snake/SuperSaiyajin.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ar/com/cobol/snake/Muerto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="90">
+          <caret line="6" column="38" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ar/com/cobol/snake/Estado.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
+          <caret line="4" column="52" selection-start-line="4" selection-start-column="52" selection-end-line="4" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ar/com/cobol/snake/Normal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="38" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
+          <folding>
+            <element signature="e#135#136#0" expanded="true" />
+            <element signature="e#182#183#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ar/com/cobol/snake/Muerto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ar/com/cobol/resources/directionUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ar/com/cobol/punto/Punto.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
-          <caret line="36" column="17" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
-          <folding>
-            <element signature="e#535#536#0" expanded="true" />
-            <element signature="e#614#615#0" expanded="true" />
-          </folding>
+          <caret line="36" column="38" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ar/com/cobol/mapa/Pared.java">
+    <entry file="file://$PROJECT_DIR$/src/ar/com/cobol/item/Fruta.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="33" lean-forward="true" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+        <state relative-caret-position="165">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#165#166#0" expanded="true" />
-            <element signature="e#184#185#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ar/com/cobol/resources/directionUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ar/com/cobol/mapa/Item.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#185#186#0" expanded="true" />
-            <element signature="e#222#223#0" expanded="true" />
-            <element signature="e#239#240#0" expanded="true" />
-            <element signature="e#270#271#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ar/com/cobol/mapa/Fruta.java">
+    <entry file="file://$PROJECT_DIR$/src/ar/com/cobol/item/Pared.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
-          <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#123#124#0" expanded="true" />
-            <element signature="e#145#146#0" expanded="true" />
-            <element signature="e#164#165#0" expanded="true" />
-            <element signature="e#210#211#0" expanded="true" />
+            <element signature="e#158#159#0" expanded="true" />
+            <element signature="e#178#179#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ar/com/cobol/snake/Salamandra.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4">
-          <caret line="81" lean-forward="true" selection-start-line="81" selection-end-line="81" />
+        <state relative-caret-position="330">
+          <caret line="28" column="67" selection-start-line="28" selection-start-column="67" selection-end-line="28" selection-end-column="67" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1067#1068#0" expanded="true" />
-            <element signature="e#1088#1089#0" expanded="true" />
-            <element signature="e#1134#1135#0" expanded="true" />
-            <element signature="e#1161#1162#0" expanded="true" />
-            <element signature="e#1194#1195#0" expanded="true" />
-            <element signature="e#1217#1218#0" expanded="true" />
-            <element signature="e#1264#1265#0" expanded="true" />
-            <element signature="e#1297#1298#0" expanded="true" />
-            <element signature="e#1327#1328#0" expanded="true" />
-            <element signature="e#1347#1348#0" expanded="true" />
-            <element signature="e#1388#1389#0" expanded="true" />
-            <element signature="e#1415#1416#0" expanded="true" />
-            <element signature="e#1781#1782#0" expanded="true" />
-            <element signature="e#1809#1810#0" expanded="true" />
-            <element signature="e#1845#1846#0" expanded="true" />
-            <element signature="e#1884#1885#0" expanded="true" />
-            <element signature="e#2060#2061#0" expanded="true" />
-            <element signature="e#2090#2091#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/ar/com/cobol/testSalamandra.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ar/com/cobol/item/Item.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ar/com/cobol/mapa/Mapa.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+        <state relative-caret-position="240">
+          <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ar/com/cobol/SalamandraGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/ar/com/cobol/mapa/testMapa.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="25" column="46" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ar/com/cobol/mapa/MapaNormal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="36" column="38" selection-start-line="36" selection-start-column="38" selection-end-line="36" selection-end-column="38" />
+          <folding>
+            <element signature="e#160#161#0" expanded="true" />
+            <element signature="e#205#206#0" expanded="true" />
+            <element signature="e#239#240#0" expanded="true" />
+            <element signature="e#265#266#0" expanded="true" />
+            <element signature="e#297#298#0" expanded="true" />
+            <element signature="e#324#325#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -34,7 +34,7 @@ public class Punto {
 		this.y = y;
 	}
 
-	public Punto generarBufanda(Punto punto) {
+	public Punto generarPuntoAdyacente(Punto punto) {
 		return new Punto(this.getX() + punto.getX(), this.getY() + punto.getY());
 	}
 

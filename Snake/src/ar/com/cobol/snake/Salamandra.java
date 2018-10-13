@@ -3,8 +3,9 @@ package ar.com.cobol.snake;
 import java.util.ArrayList;
 import java.util.List;
 
-import ar.com.cobol.mapa.Item;
+import ar.com.cobol.item.Item;
 import ar.com.cobol.punto.Punto;
+
 import static ar.com.cobol.resources.directionUtils.*;
 
 
@@ -17,7 +18,7 @@ public class Salamandra{
 
 	private List<Punto> cuerpo;
 	private Punto ultPosCola;
-	private double velocidad;
+	private double modifVelocidad;
 	private Estado estado;
 	private int direccion;
 
@@ -25,18 +26,19 @@ public class Salamandra{
 
 	}
 
+	//TODO: REVISAR EL TEMA DE LA POSICION INICIAL DE LA SALAMANDRA
 	public Salamandra(Punto p, int tam, int direc) {
 		this.cuerpo = new ArrayList<Punto>();
 		this.estado = new Normal();
 		for (int i = 0; i < tam; i++) {
 			if (IZQUIERDA == direc)
-				this.cuerpo.add(p.generarBufanda(new Punto(-i, 0)));
+				this.cuerpo.add(p.generarPuntoAdyacente(new Punto(-i, 0)));
 			if (DERECHA == direc)
-				this.cuerpo.add(p.generarBufanda(new Punto(i, 0)));
+				this.cuerpo.add(p.generarPuntoAdyacente(new Punto(i, 0)));
 			if (ARRIBA == direc)
-				this.cuerpo.add(p.generarBufanda(new Punto(0, i)));
+				this.cuerpo.add(p.generarPuntoAdyacente(new Punto(0, i)));
 			if (ABAJO == direc)
-				this.cuerpo.add(p.generarBufanda(new Punto(0, -i)));
+				this.cuerpo.add(p.generarPuntoAdyacente(new Punto(0, -i)));
 		}
 		this.ultPosCola = this.cuerpo.get(this.cuerpo.size() - 1);
 
@@ -53,12 +55,12 @@ public class Salamandra{
 		this.cuerpo = cuerpo;
 	}
 
-	public double getVelocidad() {
-		return velocidad;
+	public double getmodifVelocidad() {
+		return modifVelocidad;
 	}
 
-	public void setVelocidad(double velocidad) {
-		this.velocidad = velocidad;
+	public void setmodifVelocidad(double modifVelocidad) {
+		this.modifVelocidad = modifVelocidad;
 	}
 
 	public Estado getEstado() {
@@ -69,6 +71,21 @@ public class Salamandra{
 		this.estado = estado;
 	}
 
+	public Punto getUltPosCola() {
+		return ultPosCola;
+	}
+
+	public void setUltPosCola(Punto ultPosCola) {
+		this.ultPosCola = ultPosCola;
+	}
+
+	public int getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(int direccion) {
+		this.direccion = direccion;
+	}
 
 	//Esto lo llamo antes de moverme, por si después consumo una fruta y tengo que agregar una nueva parte del cuerpo.
 	//[Consumo -> Agrego] -> Guardo -> Muevo: Orden de acciones al mover.
@@ -84,9 +101,9 @@ public class Salamandra{
 		this.cuerpo.add(this.ultPosCola);
 	}
 
-	//La implementación de la velocidad es según el tiempo transcurrido de juego. Cuanto más pasa, más rapido irán las Salamandras.
-	public void aumentarVelocidad(double value){
-		this.velocidad += value;
+	//La implementación de la modifVelocidad es según el tiempo transcurrido de juego. Cuanto más pasa, más rapido irán las Salamandras.
+	public void aumentarmodifVelocidad(double value){
+		this.modifVelocidad += value;
 	}
 
 	public void cambiarDireccion(int direcNueva){
@@ -97,6 +114,10 @@ public class Salamandra{
 
 	//TODO: Hacer una interfaz Dirección y hacer 4 clases para c/dirección que manejen los ejes c/u.
 	public void moverse(){
+
+		if(this.direccion == QUIETO)
+			return;
+
 		this.ultPosCola = this.cuerpo.get(this.cuerpo.size() - 1);
 
 		if(this.direccion == IZQUIERDA){

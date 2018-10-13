@@ -1,4 +1,4 @@
-package ar.com.cobol.test;
+package ar.com.cobol;
 
 import org.junit.*;
 
@@ -21,9 +21,9 @@ public class testSalamandra {
 		}
 	}
 	
-	@Test
+	/*@Test
 	public void mapaVacio() {
 		Mapa map = new Mapa();
 		map.verMapa();
-	}
+	}*/
 }

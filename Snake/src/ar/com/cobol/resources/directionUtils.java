@@ -2,6 +2,7 @@ package ar.com.cobol.resources;
 
 public class directionUtils {
 
+    public static final int QUIETO = 0;
     public static final int IZQUIERDA = 1;
     public static final int DERECHA = 2;
     public static final int ARRIBA = 3;

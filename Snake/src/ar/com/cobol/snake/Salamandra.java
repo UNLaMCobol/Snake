@@ -14,8 +14,6 @@ public class Salamandra extends Item{
 	public void handleItem(Salamandra salamandra){
 		salamandra.setEstado(new Muerto());
 	}
-	
-
 
 	private List<Punto> cuerpo;
 	private Punto ultPosCola;
@@ -87,11 +85,10 @@ public class Salamandra extends Item{
 	}
 
 	public void cambiarDireccion(int direcNueva){
-		if(direcNueva == this.direccion)
+		if(direcNueva == this.direccion || sonOpuestos(direcNueva, this.direccion))
 			return;
 		this.direccion = direcNueva;
 	}
-
 
 	//TODO: Hacer una interfaz Dirección y hacer 4 clases para c/dirección que manejen los ejes c/u.
 	public void moverse(){
@@ -112,7 +109,5 @@ public class Salamandra extends Item{
 			this.cuerpo.remove(this.cuerpo.size() - 1);
 		}
 	}
-
-
 	
 }

@@ -5,6 +5,8 @@ import java.util.List;
 
 import ar.com.cobol.mapa.Item;
 import ar.com.cobol.punto.Punto;
+import static ar.com.cobol.resources.directionUtils.*;
+
 
 public class Salamandra extends Item{
 
@@ -13,10 +15,7 @@ public class Salamandra extends Item{
 		salamandra.setEstado(new Muerto());
 	}
 	
-	private static final int IZQUIERDA = 1;
-	private static final int DERECHA = 2;
-	private static final int ARRIBA = 3;
-	private static final int ABAJO = 4;
+
 
 	private List<Punto> cuerpo;
 	private Punto ultPosCola;
@@ -91,6 +90,27 @@ public class Salamandra extends Item{
 		if(direcNueva == this.direccion)
 			return;
 		this.direccion = direcNueva;
+	}
+
+
+	//TODO: Hacer una interfaz Dirección y hacer 4 clases para c/dirección que manejen los ejes c/u.
+	public void moverse(){
+		if(this.direccion == IZQUIERDA){
+			this.cuerpo.add(0, new Punto(this.cuerpo.get(0).getX() + MOVER_IZQ_O_ABAJO, this.cuerpo.get(0).getY()));
+			this.cuerpo.remove(this.cuerpo.size() - 1);
+		}
+		if(this.direccion == ABAJO){
+			this.cuerpo.add(0, new Punto(this.cuerpo.get(0).getX(), this.cuerpo.get(0).getY() + MOVER_IZQ_O_ABAJO));
+			this.cuerpo.remove(this.cuerpo.size() - 1);
+		}
+		if(this.direccion == DERECHA){
+			this.cuerpo.add(0, new Punto(this.cuerpo.get(0).getX() + MOVER_DER_O_ARRIBA, this.cuerpo.get(0).getY()));
+			this.cuerpo.remove(this.cuerpo.size() - 1);
+		}
+		if(this.direccion == ARRIBA){
+			this.cuerpo.add(0, new Punto(this.cuerpo.get(0).getX(), this.cuerpo.get(0).getY() + MOVER_DER_O_ARRIBA));
+			this.cuerpo.remove(this.cuerpo.size() - 1);
+		}
 	}
 
 

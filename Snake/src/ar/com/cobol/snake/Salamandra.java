@@ -8,12 +8,8 @@ import ar.com.cobol.punto.Punto;
 import static ar.com.cobol.resources.directionUtils.*;
 
 
-public class Salamandra extends Item{
+public class Salamandra {
 
-	@Override
-	public void handleItem(Salamandra salamandra){
-		salamandra.setEstado(new Muerto());
-	}
 
 	private List<Punto> cuerpo;
 	private Punto ultPosCola;
@@ -34,9 +30,6 @@ public class Salamandra extends Item{
 			if (ABAJO == direc)
 				this.cuerpo.add(p.generarBufanda(new Punto(0, -i)));
 		}
-
-		// this.cuerpo.add(p);
-		// this.cuerpo.add(new Punto(p.getX()-1, p.getY()));
 	}
 	
 
@@ -76,6 +69,7 @@ public class Salamandra extends Item{
 	}
 
 	public void addParteDelCuerpo() {
+		this.guardarUltPosCola();
 		this.cuerpo.add(this.ultPosCola);
 	}
 

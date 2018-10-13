@@ -16,15 +16,11 @@ public class Salamandra{
 		salamandra.setEstado(new Muerto());
 	}*/
 
-	private List<Punto> cuerpo;
+	private ArrayList<Punto> cuerpo;
 	private Punto ultPosCola;
 	private double modifVelocidad;
 	private Estado estado;
 	private int direccion;
-
-	public Salamandra(){
-
-	}
 
 	//TODO: REVISAR EL TEMA DE LA POSICION INICIAL DE LA SALAMANDRA
 	public Salamandra(Punto p, int tam, int direc) {
@@ -51,7 +47,7 @@ public class Salamandra{
 		return  cuerpo;
 	}
 
-	public void setCuerpo(List<Punto> cuerpo) {
+	public void setCuerpo(ArrayList<Punto> cuerpo) {
 		this.cuerpo = cuerpo;
 	}
 

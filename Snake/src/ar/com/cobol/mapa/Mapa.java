@@ -1,9 +1,12 @@
 package ar.com.cobol.mapa;
 
 import ar.com.cobol.item.Item;
+import ar.com.cobol.punto.Punto;
 import ar.com.cobol.snake.Salamandra;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public interface Mapa {
 
@@ -15,6 +18,7 @@ public interface Mapa {
 	public int[][] getMapa();
 	public int getTAM();
 	public void ubicarFruta();
+	public void ubicarSalamandra(ArrayList<Punto> cuerpo);
 
 
 }

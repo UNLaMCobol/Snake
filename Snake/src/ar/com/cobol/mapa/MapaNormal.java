@@ -1,5 +1,9 @@
 package ar.com.cobol.mapa;
 
+import ar.com.cobol.punto.Punto;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class MapaNormal implements Mapa {
@@ -35,5 +39,10 @@ public class MapaNormal implements Mapa {
         int posX = r.nextInt(13)+1;
         int posY = r.nextInt(13)+1;
         this.mapa[posX][posY] = FRUTA;
+    }
+
+    @Override
+    public void ubicarSalamandra(ArrayList<Punto> cuerpo) {
+
     }
 }

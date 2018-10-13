@@ -5,11 +5,12 @@ import ar.com.cobol.snake.Salamandra;
 
 public class Fruta extends Item{
 
-    public Fruta(Punto p) {
-		super(p);
-	}
+	
+    public Fruta(Punto posicion){
+        super(posicion);
+    }
 
-	@Override
+    @Override
     public void handleItem(Salamandra salamandra){
         salamandra.addParteDelCuerpo();
     }

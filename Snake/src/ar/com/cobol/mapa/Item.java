@@ -7,11 +7,12 @@ public abstract class Item {
 
 	private Punto posicion;
 
+	public Item(Punto posicion){
+	    this.posicion = posicion;
+    }
+
 	public void handleItem(Salamandra salamandra){}
 	
-	public Item(Punto p) {
-		this.posicion = p;
-	}
 
     public Punto getPosicion() {
         return posicion;

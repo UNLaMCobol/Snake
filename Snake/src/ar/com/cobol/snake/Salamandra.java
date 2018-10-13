@@ -8,14 +8,22 @@ import ar.com.cobol.punto.Punto;
 import static ar.com.cobol.resources.directionUtils.*;
 
 
-public class Salamandra {
+public class Salamandra{
 
+	/*@Override
+	public void handleItem(Salamandra salamandra){
+		salamandra.setEstado(new Muerto());
+	}*/
 
 	private List<Punto> cuerpo;
 	private Punto ultPosCola;
 	private double velocidad;
 	private Estado estado;
 	private int direccion;
+
+	public Salamandra(){
+
+	}
 
 	public Salamandra(Punto p, int tam, int direc) {
 		this.cuerpo = new ArrayList<Punto>();
@@ -30,6 +38,10 @@ public class Salamandra {
 			if (ABAJO == direc)
 				this.cuerpo.add(p.generarBufanda(new Punto(0, -i)));
 		}
+		this.ultPosCola = this.cuerpo.get(this.cuerpo.size() - 1);
+
+		// this.cuerpo.add(p);
+		// this.cuerpo.add(new Punto(p.getX()-1, p.getY()));
 	}
 	
 
@@ -86,6 +98,8 @@ public class Salamandra {
 
 	//TODO: Hacer una interfaz Dirección y hacer 4 clases para c/dirección que manejen los ejes c/u.
 	public void moverse(){
+		this.ultPosCola = this.cuerpo.get(this.cuerpo.size() - 1);
+
 		if(this.direccion == IZQUIERDA){
 			this.cuerpo.add(0, new Punto(this.cuerpo.get(0).getX() + MOVER_IZQ_O_ABAJO, this.cuerpo.get(0).getY()));
 			this.cuerpo.remove(this.cuerpo.size() - 1);

@@ -1,13 +1,28 @@
 package ar.com.cobol.mapa;
 
+import ar.com.cobol.snake.Salamandra;
+
 import java.util.HashMap;
 
 public class Mapa {
 	
 	private static final int TAM = 10;
 	
-	private int[][] mapa = new int [TAM][TAM];
+	private int[][] mapa;
 	private HashMap<Integer, Item> itemList;
+	private HashMap<Integer, Salamandra> salamandraList;
+	private int cantJugadores;
+
+	public Mapa(int cantJugadores){
+		this.mapa = new int[TAM][TAM];
+		this.cantJugadores = cantJugadores;
+		itemList = new HashMap<Integer, Item>();
+		salamandraList = new HashMap<Integer, Salamandra>();
+		for(int i = 1; i <= cantJugadores; i++){
+			//salamandraList.;
+		}
+
+	}
 	
 
 	public void verMapa() {

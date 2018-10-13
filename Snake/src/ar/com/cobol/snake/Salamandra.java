@@ -3,9 +3,15 @@ package ar.com.cobol.snake;
 import java.util.ArrayList;
 import java.util.List;
 
+import ar.com.cobol.mapa.Item;
 import ar.com.cobol.punto.Punto;
 
-public class Salamandra {
+public class Salamandra extends Item{
+
+	@Override
+	public void handleItem(Salamandra salamandra){
+		salamandra.setEstado(new Muerto());
+	}
 	
 	private static final int IZQUIERDA = 1;
 	private static final int DERECHA = 2;
@@ -13,8 +19,10 @@ public class Salamandra {
 	private static final int ABAJO = 4;
 
 	private List<Punto> cuerpo;
+	private Punto ultPosCola;
 	private double velocidad;
 	private Estado estado;
+	private int direccion;
 
 	public Salamandra(Punto p, int tam, int direc) {
 		this.cuerpo = new ArrayList<Punto>();
@@ -29,6 +37,7 @@ public class Salamandra {
 			if (ABAJO == direc)
 				this.cuerpo.add(p.generarBufanda(new Punto(0, -i)));
 		}
+
 		// this.cuerpo.add(p);
 		// this.cuerpo.add(new Punto(p.getX()-1, p.getY()));
 	}
@@ -57,26 +66,33 @@ public class Salamandra {
 	public void setEstado(Estado estado) {
 		this.estado = estado;
 	}
-	
-	/**
-	 * 
-	 * @param p es el punto que se le asignar� a la cabeza
-	 * 
-	 * Este metodo le asigna p a la cabeza y 
-	 * el punto de la cabeza se lo asigna a la siguente parte del cuerpo
-	 *  
-	 */
-//	public void addParteDelCuerpo(Punto p) {
-//		Punto puntoCuerpo = new Punto(this.getCuerpo().get(0).getX(), this.getCuerpo().get(0).getY());
-//		this.getCuerpo().get(0).resetXY(p.getX(), p.getY());
-//		for (int i = 1; i < this.getCuerpo().size() - 1; i++) {
-//			
-//		}
-//		
-//		
-//		this.getCuerpo().add(puntoCuerpo);
-//	}
-	
-	
+
+
+	//Esto lo llamo antes de moverme, por si después consumo una fruta y tengo que agregar una nueva parte del cuerpo.
+	//[Consumo -> Agrego] -> Guardo -> Muevo: Orden de acciones al mover.
+	public void guardarUltPosCola(){
+		this.ultPosCola = this.cuerpo.get(this.cuerpo.size() -1);	//Me guardo la última posición de la cola.
+	}
+
+	public void superponer(Item item){
+		item.handleItem(this);
+	}
+
+	public void addParteDelCuerpo() {
+		this.cuerpo.add(this.ultPosCola);
+	}
+
+	//La implementación de la velocidad es según el tiempo transcurrido de juego. Cuanto más pasa, más rapido irán las Salamandras.
+	public void aumentarVelocidad(double value){
+		this.velocidad += value;
+	}
+
+	public void cambiarDireccion(int direcNueva){
+		if(direcNueva == this.direccion)
+			return;
+		this.direccion = direcNueva;
+	}
+
+
 	
 }

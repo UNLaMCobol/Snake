@@ -1,12 +1,12 @@
 package ar.com.cobol.mapa;
 
+import ar.com.cobol.snake.Muerto;
 import ar.com.cobol.snake.Salamandra;
 
-public class Fruta extends Item{
+public class Pared extends Item {
 
     @Override
     public void handleItem(Salamandra salamandra){
-        salamandra.addParteDelCuerpo();
+        salamandra.setEstado(new Muerto());
     }
-
 }

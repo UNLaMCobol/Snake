@@ -1,4 +1,4 @@
-package ar.com.cobol.mapa;
+package ar.com.cobol.item;
 
 import ar.com.cobol.punto.Punto;
 import ar.com.cobol.snake.Salamandra;
@@ -12,13 +12,8 @@ public abstract class Item {
     }
 
 	public void handleItem(Salamandra salamandra){}
-	
 
     public Punto getPosicion() {
         return posicion;
     }
-
-	public void setPosicion(Punto posicion) {
-		this.posicion = posicion;
-	}
 }

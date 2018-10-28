@@ -9,9 +9,10 @@ import java.util.Random;
 public class MapaNormal implements Mapa {
 
     private static final int TAM = 15;
-    private Objeto[][] mapa = new Objeto[TAM][TAM];
+    private Objeto[][] mapa;
 
     public MapaNormal(){
+    	this.mapa = new Objeto[TAM][TAM];
     	for (int i = 0; i < TAM; i++) {
     		for (int j = 0; j < TAM; j++) {
 				this.mapa[i][j] = Objeto.ESPACIO;

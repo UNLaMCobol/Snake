@@ -1,4 +1,4 @@
-package ar.com.cobol.punto;
+package ar.com.cobol.figura;
 
 public class Circulo {
 	

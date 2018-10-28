@@ -7,8 +7,8 @@ import java.util.List;
 
 import javax.swing.JPanel;
 
-import ar.com.cobol.punto.Circulo;
-import ar.com.cobol.punto.Punto;
+import ar.com.cobol.figura.Circulo;
+import ar.com.cobol.figura.Punto;
 
 public class JPanelGrafico extends JPanel {
 

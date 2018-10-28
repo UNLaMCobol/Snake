@@ -1,7 +1,7 @@
 package ar.com.cobol;
 
+import ar.com.cobol.figura.Punto;
 import ar.com.cobol.mapa.Mapa;
-import ar.com.cobol.punto.Punto;
 import ar.com.cobol.snake.Salamandra;
 
 import java.util.ArrayList;

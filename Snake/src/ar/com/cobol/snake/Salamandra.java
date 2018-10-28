@@ -3,8 +3,8 @@ package ar.com.cobol.snake;
 import java.util.ArrayList;
 import java.util.List;
 
+import ar.com.cobol.figura.Punto;
 import ar.com.cobol.item.Item;
-import ar.com.cobol.punto.Punto;
 
 import static ar.com.cobol.resources.directionUtils.*;
 

@@ -1,10 +1,10 @@
 package ar.com.cobol.mapa;
 
-import ar.com.cobol.punto.Punto;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import ar.com.cobol.figura.Punto;
 
 public class MapaNormal implements Mapa {
 

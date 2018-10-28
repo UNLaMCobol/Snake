@@ -2,8 +2,8 @@ package ar.com.cobol.interfaz;
 
 import javax.swing.JFrame;
 
-import ar.com.cobol.punto.Circulo;
-import ar.com.cobol.punto.Punto;
+import ar.com.cobol.figura.Circulo;
+import ar.com.cobol.figura.Punto;
 
 import java.awt.Color;
 

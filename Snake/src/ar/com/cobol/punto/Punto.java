@@ -37,6 +37,11 @@ public class Punto {
 	public Punto generarPuntoAdyacente(Punto punto) {
 		return new Punto(this.getX() + punto.getX(), this.getY() + punto.getY());
 	}
+	
+	public void desplazar(int delta_x, int delta_y) {
+		this.x += delta_x;
+		this.y += delta_y;
+	}
 
 	public String mostrarPunto() {
 		return "( " + x + " , " + y + " )";		

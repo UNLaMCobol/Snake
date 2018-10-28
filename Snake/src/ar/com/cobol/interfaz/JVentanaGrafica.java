@@ -12,11 +12,16 @@ import java.awt.event.ContainerListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.List;
-
+import static ar.com.cobol.resources.directionUtils.*;
 
 public class JVentanaGrafica extends JFrame{
 	
-private JPanelGrafico contentPane;
+	
+	private JPanelGrafico contentPane;
+	private List<Circulo> snake;
+	private int rad;
+	private Punto anterior;
+	private int direccion;
 	
 	public JVentanaGrafica() {
 		super("Ejemplo Básico de Graphics");
@@ -32,91 +37,62 @@ private JPanelGrafico contentPane;
 		setBounds(100, 100, 600, 500);
 		contentPane = new JPanelGrafico(new Circulo(new Punto(100, 100), 50), new Circulo(new Punto(100, 60), 50));
 		setBackground(Color.WHITE);
-		
 	
 		setContentPane(contentPane);
 		
 		setLocationRelativeTo(null);
+		
+		this.snake = contentPane.getSnake();
+		this.rad = (int) this.snake.get(0).getRadio();
+		this.anterior = this.snake.get(0).getCentro().clone();
+		this.direccion = ARRIBA;
+		
+	}
+	
+	private void reacomodarCuerpo() {
+		for (int i = 1; i < this.snake.size(); i++) {
+			Punto aux = this.snake.get(i).getCentro().clone();
+			this.snake.get(i).setCentro(this.anterior.clone());
+			this.anterior = aux.clone();
+			
+		}
+		contentPane.setSnake(this.snake);
 	}
 	
 	public void setMovimiento(KeyEvent evento){
-		
-		Circulo c1 = contentPane.getCirculo();
-		Circulo c2 = contentPane.getC2();
-		List<Circulo> snake = contentPane.getSnake();
-		int RAD = (int) snake.get(0).getRadio();
-		//Punto anterior = c1.getCentro().clone();
-//		
-//		if(evento.getKeyCode() == KeyEvent.VK_LEFT) {
-//			c1.desplazarHorizontalmente(-50);
-//			contentPane.setCirculo(c1);
-//			c2.setCentro(anterior);
-//			contentPane.setC2(c2);
-//		}
-//		if(evento.getKeyCode() == KeyEvent.VK_RIGHT) {
-//			c1.desplazarHorizontalmente(50);
-//			contentPane.setCirculo(c1);
-//			c2.setCentro(anterior);
-//			contentPane.setC2(c2);
-//				
-//		}
-//		if(evento.getKeyCode() == KeyEvent.VK_UP) {
-//			c1.desplazarVerticalmente(-50);
-//			contentPane.setCirculo(c1);
-//			c2.setCentro(anterior);
-//			contentPane.setC2(c2);
-//			
-//		}
-//		if(evento.getKeyCode() == KeyEvent.VK_DOWN) {
-//			c1.desplazarVerticalmente(50);
-//			contentPane.setCirculo(c1);
-//			c2.setCentro(anterior);
-//			contentPane.setC2(c2);;
-//		}
-//		
-		Punto anterior = snake.get(0).getCentro().clone();
+		this.anterior = this.snake.get(0).getCentro().clone();
 		if(evento.getKeyCode() == KeyEvent.VK_A) {
-			snake.get(0).desplazarHorizontalmente(-RAD);
-			for (int i = 1; i < snake.size(); i++) {
-				snake.get(i).setCentro(anterior.clone());
-				anterior = snake.get(i).getCentro().clone();
-				contentPane.setSnake(snake);
-			}
-	
+			if(this.direccion == DERECHA)
+				return;
+			this.direccion = IZQUIERDA;
+			this.snake.get(0).desplazarHorizontalmente(-this.rad);
+			reacomodarCuerpo();
 		}
 		
 		if(evento.getKeyCode() == KeyEvent.VK_D) {
-			snake.get(0).desplazarHorizontalmente(RAD);
-			for (int i = 1; i < snake.size(); i++) {
-				snake.get(i).setCentro(anterior.clone());
-				anterior = snake.get(i).getCentro().clone();
-				contentPane.setSnake(snake);
-			}
-			
-				
+			if(this.direccion == IZQUIERDA)
+				return;
+			this.direccion = DERECHA;
+			this.snake.get(0).desplazarHorizontalmente(this.rad);
+			reacomodarCuerpo();	
 		}
+		
 		if(evento.getKeyCode() == KeyEvent.VK_W) {
-			snake.get(0).desplazarVerticalmente(-RAD);
-			for (int i = 1; i < snake.size(); i++) {
-				
-				snake.get(i).setCentro(anterior.clone());
-				anterior = snake.get(i).getCentro().clone();
-				contentPane.setSnake(snake);
-			}
-			
-			
+			if(this.direccion == ABAJO)
+				return;
+			this.direccion = ARRIBA;
+			this.snake.get(0).desplazarVerticalmente(-this.rad);
+			reacomodarCuerpo();
 		}
+		
 		if(evento.getKeyCode() == KeyEvent.VK_S) {
-			snake.get(0).desplazarVerticalmente(RAD);
-			for (int i = 1; i < snake.size(); i++) {
-				
-				snake.get(i).setCentro(anterior.clone());
-				anterior = snake.get(i).getCentro().clone();
-				contentPane.setSnake(snake);
-				
-			}
-			
+			if(this.direccion == ARRIBA)
+				return;
+			this.direccion = ABAJO;
+			this.snake.get(0).desplazarVerticalmente(this.rad);
+			reacomodarCuerpo();	
 		}
+		
 		repaint();
 	}
 

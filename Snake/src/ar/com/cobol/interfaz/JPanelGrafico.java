@@ -21,7 +21,7 @@ public class JPanelGrafico extends JPanel {
 		this.c2 = c2;
 		
 		snake = new ArrayList<Circulo>();
-		for (int i = 100; i < 250; i+=50) {
+		for (int i = 100; i < 350; i+=50) {
 			snake.add(new Circulo(new Punto(100, i), 50));
 		}
 	}

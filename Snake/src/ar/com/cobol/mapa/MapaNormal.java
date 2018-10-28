@@ -9,17 +9,21 @@ import java.util.Random;
 public class MapaNormal implements Mapa {
 
     private static final int TAM = 15;
-    private int[][] mapa;
+    private Objeto[][] mapa;
 
     public MapaNormal(){
-        this.mapa = new int[TAM][TAM];
+    	for (int i = 0; i < TAM; i++) {
+    		for (int j = 0; j < TAM; j++) {
+				this.mapa[i][j] = Objeto.ESPACIO;
+			}
+		}
     }
 
     public int getTAM() {
         return TAM;
     }
 
-    public int[][] getMapa() {
+    public Objeto[][] getMapa() {
         return mapa;
     }
 
@@ -28,7 +32,7 @@ public class MapaNormal implements Mapa {
         for(int i = 0; i < TAM; i++){
             for(int j = 0; j < TAM; j++){
                 if(i == 0 || i == TAM-1 || j == 0 || j == TAM-1)
-                    this.mapa[i][j] = PARED;
+                    this.mapa[i][j] = Objeto.COLICION;
             }
         }
     }
@@ -38,7 +42,7 @@ public class MapaNormal implements Mapa {
         Random r = new Random();
         int posX = r.nextInt(13)+1;
         int posY = r.nextInt(13)+1;
-        this.mapa[posX][posY] = FRUTA;
+        this.mapa[posX][posY] = Objeto.FRUTA;
     }
 
     @Override

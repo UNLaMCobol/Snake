@@ -37,9 +37,6 @@ public class Salamandra{
 				this.cuerpo.add(p.generarPuntoAdyacente(new Punto(0, -i)));
 		}
 		this.ultPosCola = this.cuerpo.get(this.cuerpo.size() - 1);
-
-		// this.cuerpo.add(p);
-		// this.cuerpo.add(new Punto(p.getX()-1, p.getY()));
 	}
 	
 

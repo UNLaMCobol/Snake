@@ -18,7 +18,7 @@ public class testMapa {
 
     @Test
     public void seCreoCorrectamenteElMapaNormal(){
-        Assert.assertEquals(PARED, m1.getMapa()[0][1]);
+        Assert.assertEquals(Objeto.PARED, m1.getMapa()[0][1]);
         mostrarMatrizMapa(m1);
 
     }
@@ -33,7 +33,7 @@ public class testMapa {
     private void mostrarMatrizMapa(Mapa m){
         for(int i = 0; i < m.getTAM(); i++){
             for(int j = 0; j < m.getTAM(); j++){
-                System.out.print(m.getMapa()[i][j] + " ");
+                System.out.print(m.getMapa()[i][j].ordinal() + " ");
             }
             System.out.println();
         }

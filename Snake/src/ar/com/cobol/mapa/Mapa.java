@@ -10,9 +10,9 @@ import java.util.List;
 
 public interface Mapa {
 
-	static final int ESPACIO = 0;
-    static final int FRUTA = 6;
-    static final int PARED = 5;
+//	static final int ESPACIO = 0;
+//    static final int FRUTA = 6;
+//    static final int PARED = 5;
     
 
     public void fomarMapa();

@@ -16,6 +16,8 @@ public class Salamandra{
 		salamandra.setEstado(new Muerto());
 	}*/
 
+	private static final int TAM_SNAKE = 4;
+
 	private ArrayList<Punto> cuerpo;
 	private Punto ultPosCola;
 	private double modifVelocidad;
@@ -23,10 +25,10 @@ public class Salamandra{
 	private int direccion;
 
 	//TODO: REVISAR EL TEMA DE LA POSICION INICIAL DE LA SALAMANDRA
-	public Salamandra(Punto p, int tam, int direc) {
+	public Salamandra(Punto p, int direc) {
 		this.cuerpo = new ArrayList<Punto>();
 		this.estado = new Normal();
-		for (int i = 0; i < tam; i++) {
+		for (int i = 0; i < TAM_SNAKE; i++) {
 			if (IZQUIERDA == direc)
 				this.cuerpo.add(p.generarPuntoAdyacente(new Punto(-i, 0)));
 			if (DERECHA == direc)

@@ -42,6 +42,10 @@ public class Punto {
 		this.x += delta_x;
 		this.y += delta_y;
 	}
+	
+	public Punto clone() {
+		return new Punto(this.x, this.y);
+	}
 
 	public String mostrarPunto() {
 		return "( " + x + " , " + y + " )";		

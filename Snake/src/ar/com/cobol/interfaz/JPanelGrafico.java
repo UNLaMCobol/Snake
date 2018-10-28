@@ -12,13 +12,9 @@ import ar.com.cobol.punto.Punto;
 
 public class JPanelGrafico extends JPanel {
 
-	private Circulo circulo;
-	private Circulo c2;
 	private List<Circulo> snake;
 
 	public JPanelGrafico(Circulo circulo, Circulo c2) {
-		this.circulo = circulo;
-		this.c2 = c2;
 		
 		snake = new ArrayList<Circulo>();
 		for (int i = 100; i < 350; i+=50) {
@@ -26,37 +22,12 @@ public class JPanelGrafico extends JPanel {
 		}
 	}
 
-	public void paintComponent(Graphics g2/*, Graphics g2*/) {
-		
-//		g.setColor(Color.BLUE);
-//		
-//		g.fillOval((int) circulo.getCentro().getX(), (int) circulo.getCentro().getY(), (int) circulo.getRadio(),
-//				(int) circulo.getRadio());
-//		g.fillOval((int) c2.getCentro().getX(), (int) c2.getCentro().getY(), (int) c2.getRadio(),
-//				(int) c2.getRadio());
-		
-		g2.setColor(Color.RED);
+	public void paintComponent(Graphics g) {		
+		g.setColor(Color.RED);
 		for (int i = 0; i < snake.size(); i++) {
-			g2.fillOval((int) snake.get(i).getCentro().getX(), (int) snake.get(i).getCentro().getY(), (int) snake.get(i).getRadio(),
+			g.fillOval((int) snake.get(i).getCentro().getX(), (int) snake.get(i).getCentro().getY(), (int) snake.get(i).getRadio(),
 					(int) snake.get(i).getRadio());
 		}
-		
-	}
-	
-	public Circulo getC2() {
-		return c2;
-	}
-
-	public void setC2(Circulo c2) {
-		this.c2 = c2;
-	}
-
-	public Circulo getCirculo() {
-		return this.circulo;
-	}
-	
-	public void setCirculo(Circulo circulo) {
-		this.circulo = circulo;
 	}
 	
 	public List<Circulo> getSnake() {

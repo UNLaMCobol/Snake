@@ -4,17 +4,22 @@ import static ar.com.cobol.resources.directionUtils.*;
 
 public class ThreadTimer extends Thread{
 	
+	private static int MIF = 10;	//MAKE IT FASTER
+	private static int TIME = 1000;
+	
 	private JVentanaGrafica game;
+	private int cont;
 	
 	public ThreadTimer(JVentanaGrafica game) {
 		super();
 		this.game = game;
+		this.cont = 0;
 	}
 	
 	public void run() {
 		while(true) {
 			
-			try { sleep(1000); } catch (InterruptedException e) {}
+			try { sleep(TIME); } catch (InterruptedException e) {}
 			
 			game.refrescarAnterior();
 			
@@ -38,7 +43,15 @@ public class ThreadTimer extends Thread{
 				game.reacomodarCuerpo();
 			}
 			
-			game.refrescarPantalla();	
+			game.refrescarPantalla();
+			
+			this.cont++;
+			if(TIME > 100 && this.cont == MIF) {
+				MIF *= 2;
+				TIME -= 200;
+				if(TIME == 0)
+					TIME = 100;
+			}
 		}
 		
 	}

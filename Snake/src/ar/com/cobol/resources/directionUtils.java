@@ -10,6 +10,7 @@ public class directionUtils {
 
     public static final int MOVER_IZQ_O_ABAJO = -1;
     public static final int MOVER_DER_O_ARRIBA = 1;
+    public static final int MOVIMIENTO = 50;
 
     public static boolean sonOpuestos(int x, int y){
         return ((x == IZQUIERDA && y == DERECHA) || (x == ARRIBA && y == ABAJO) ||

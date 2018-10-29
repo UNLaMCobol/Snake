@@ -58,6 +58,36 @@ public class JVentanaGrafica extends JFrame{
 		timer.start();
 	}
 	
+	public boolean mirarSiHayFruta(int direc) {
+		
+		int posXSnake = this.snake.get(0).getCentro().getX();
+		int posYSnake = this.snake.get(0).getCentro().getY();;
+		int posXFruta = this.fruta.getCentro().getX();
+		int posYFruta = this.fruta.getCentro().getY();
+		
+		if(direc == ARRIBA && (posXSnake == posXFruta && posYSnake-MOVIMIENTO == posYFruta)) {
+			return true;
+		}
+		
+		if(direc == ABAJO && (posXSnake == posXFruta && posYSnake+MOVIMIENTO == posYFruta)) {
+			return true;
+		}
+		
+		if(direc == IZQUIERDA && (posXSnake-MOVIMIENTO == posXFruta && posYSnake == posYFruta)) {
+			return true;
+		}
+
+		if(direc == DERECHA && (posXSnake+MOVIMIENTO == posXFruta && posYSnake == posYFruta)) {
+			return true;
+		}
+		return false;
+	}
+	
+	public void agregarCuerpo() {
+		Circulo nuevoCuerpo = this.fruta.clone();
+		this.snake.add(0, nuevoCuerpo);
+	}
+	
 	public void reacomodarCuerpo() {
 		for (int i = 1; i < this.snake.size(); i++) {
 			Punto aux = this.snake.get(i).getCentro().clone();

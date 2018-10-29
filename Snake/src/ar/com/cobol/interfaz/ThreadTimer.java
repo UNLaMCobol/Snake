@@ -12,7 +12,7 @@ public class ThreadTimer extends Thread{
 	}
 	
 	public void run() {
-		while(1==1) {
+		while(true) {
 			
 			try { sleep(1000); } catch (InterruptedException e) {}
 			

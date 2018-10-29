@@ -68,40 +68,29 @@ public class JVentanaGrafica extends JFrame{
 	}
 	
 	public void setMovimiento(KeyEvent evento){
-//		this.anterior = this.snake.get(0).getCentro().clone();
 		if(evento.getKeyCode() == KeyEvent.VK_A) {
 			if(this.direccion == DERECHA)
 				return;
 			this.direccion = IZQUIERDA;
-//			this.snake.get(0).desplazarHorizontalmente(-this.rad);
-//			reacomodarCuerpo();
 		}
 		
 		if(evento.getKeyCode() == KeyEvent.VK_D) {
 			if(this.direccion == IZQUIERDA)
 				return;
 			this.direccion = DERECHA;
-//			this.snake.get(0).desplazarHorizontalmente(this.rad);
-//			reacomodarCuerpo();	
 		}
 		
 		if(evento.getKeyCode() == KeyEvent.VK_W) {
 			if(this.direccion == ABAJO)
 				return;
 			this.direccion = ARRIBA;
-//			this.snake.get(0).desplazarVerticalmente(-this.rad);
-//			reacomodarCuerpo();
 		}
 		
 		if(evento.getKeyCode() == KeyEvent.VK_S) {
 			if(this.direccion == ARRIBA)
 				return;
 			this.direccion = ABAJO;
-//			this.snake.get(0).desplazarVerticalmente(this.rad);
-//			reacomodarCuerpo();	
 		}
-		
-//		refrescarPantalla();
 	}
 	
 	public void refrescarPantalla() {
@@ -121,7 +110,7 @@ public class JVentanaGrafica extends JFrame{
 	}
 
 	public static void main(String[] args) {
-		JVentanaGrafica game = new JVentanaGrafica();
+		new JVentanaGrafica();
 	}
 
 }

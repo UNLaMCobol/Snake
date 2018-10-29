@@ -2,9 +2,6 @@ package ar.com.cobol.interfaz;
 
 import static ar.com.cobol.resources.directionUtils.*;
 
-import ar.com.cobol.figura.Circulo;
-import ar.com.cobol.figura.Punto;
-
 public class ThreadTimer extends Thread{
 	
 	private static int MIF = 10;	//MAKE IT FASTER
@@ -70,16 +67,18 @@ public class ThreadTimer extends Thread{
 				}
 			}
 			
-//			int posXSnake = game.getSnake().get(0).getCentro().getX();
-//			int posYSnake = game.getSnake().get(0).getCentro().getY();
-//			int posXFruta = game.getFruta().getCentro().getX();
-//			int posYFruta = game.getFruta().getCentro().getY();
-//			
-//			if(posXSnake == posXFruta && posYSnake == posYFruta) {
-//				game.reacomodarFruta();
-//				Circulo nuevoCuerpo = game.getSnake().get(game.getSnake().size()).clone();
-//				game.getSnake().add(nuevoCuerpo);
-//			}
+			if(game.seFueDeRango() == ARRIBA) {
+				game.pasarDeLado(ARRIBA);
+			}
+			if(game.seFueDeRango() == ABAJO) {
+				game.pasarDeLado(ABAJO);
+			}
+			if(game.seFueDeRango() == IZQUIERDA) {
+				game.pasarDeLado(IZQUIERDA);
+			}
+			if(game.seFueDeRango() == DERECHA) {
+				game.pasarDeLado(DERECHA);
+			}
 			
 			game.refrescarPantalla();
 			

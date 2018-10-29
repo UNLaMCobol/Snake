@@ -15,8 +15,8 @@ import static ar.com.cobol.resources.directionUtils.*;
 
 
 public class JVentanaGrafica extends JFrame{
-	
-	
+
+	private static final long serialVersionUID = 1L;
 	private JPanelGrafico contentPane;
 	private List<Circulo> snake;
 	private Circulo fruta;
@@ -25,6 +25,7 @@ public class JVentanaGrafica extends JFrame{
 	private int direccion;
 	private ThreadTimer timer;
 	private int[] posMapa;
+	private int maxMap;
 	
 	public JVentanaGrafica() {
 		super("Ejemplo Básico de Graphics");
@@ -37,7 +38,7 @@ public class JVentanaGrafica extends JFrame{
 			}
 		});
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 600, 500);
+		setBounds(100, 100, 458, 480);
 		contentPane = new JPanelGrafico();
 		setBackground(Color.WHITE);
 	
@@ -51,6 +52,7 @@ public class JVentanaGrafica extends JFrame{
 		this.anterior = this.snake.get(0).getCentro().clone();
 		this.direccion = ARRIBA;
 		this.posMapa = contentPane.getPosMapa();
+		this.maxMap = contentPane.getMAX_MAP();
 		
 		this.timer = new ThreadTimer(this);
 		
@@ -130,6 +132,43 @@ public class JVentanaGrafica extends JFrame{
 				return;
 			this.direccion = ABAJO;
 		}
+	}
+	
+	public int seFueDeRango() {
+		if(this.snake.get(0).getCentro().getX() > this.maxMap) {
+			return DERECHA;
+		}
+		
+		if(this.snake.get(0).getCentro().getX() < 0) {
+			return IZQUIERDA;
+		}
+		
+		if(this.snake.get(0).getCentro().getY() < 0) {
+			return ARRIBA;
+		}
+		
+		if(this.snake.get(0).getCentro().getY() > this.maxMap) {
+			return ABAJO;
+		}
+		
+		return -1;
+	}
+	
+	public void pasarDeLado(int direc) {
+		Punto pasaDeLado = null;
+		if(direc == ARRIBA) {
+			pasaDeLado = new Punto(this.snake.get(0).getCentro().getX(), this.maxMap);
+		}
+		if(direc == ABAJO) {
+			pasaDeLado = new Punto(this.snake.get(0).getCentro().getX(), 0);
+		}
+		if(direc == IZQUIERDA) {
+			pasaDeLado = new Punto(this.maxMap, this.snake.get(0).getCentro().getY());
+		}
+		if(direc == DERECHA) {
+			pasaDeLado = new Punto(0, this.snake.get(0).getCentro().getY());
+		}
+		this.snake.get(0).setCentro(pasaDeLado);			
 	}
 	
 	public void refrescarPantalla() {

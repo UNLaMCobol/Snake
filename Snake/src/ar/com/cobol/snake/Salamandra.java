@@ -10,11 +10,8 @@ import static ar.com.cobol.resources.directionUtils.*;
 
 
 public class Salamandra{
-
-	/*@Override
-	public void handleItem(Salamandra salamandra){
-		salamandra.setEstado(new Muerto());
-	}*/
+	
+	private static final int TAM_SAL = 2;
 
 	private ArrayList<Punto> cuerpo;
 	private Punto ultPosCola;
@@ -23,10 +20,10 @@ public class Salamandra{
 	private int direccion;
 
 	//TODO: REVISAR EL TEMA DE LA POSICION INICIAL DE LA SALAMANDRA
-	public Salamandra(Punto p, int tam, int direc) {
+	public Salamandra(Punto p, int direc) {
 		this.cuerpo = new ArrayList<Punto>();
 		this.estado = new Normal();
-		for (int i = 0; i < tam; i++) {
+		for (int i = 0; i < TAM_SAL; i++) {
 			if (IZQUIERDA == direc)
 				this.cuerpo.add(p.generarPuntoAdyacente(new Punto(-i, 0)));
 			if (DERECHA == direc)
@@ -37,9 +34,6 @@ public class Salamandra{
 				this.cuerpo.add(p.generarPuntoAdyacente(new Punto(0, -i)));
 		}
 		this.ultPosCola = this.cuerpo.get(this.cuerpo.size() - 1);
-
-		// this.cuerpo.add(p);
-		// this.cuerpo.add(new Punto(p.getX()-1, p.getY()));
 	}
 	
 

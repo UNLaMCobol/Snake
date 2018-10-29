@@ -7,12 +7,11 @@ import ar.com.cobol.figura.Punto;
 
 import java.awt.Color;
 
-
-import java.awt.event.ContainerListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.List;
 import static ar.com.cobol.resources.directionUtils.*;
+
 
 public class JVentanaGrafica extends JFrame{
 	
@@ -22,6 +21,7 @@ public class JVentanaGrafica extends JFrame{
 	private int rad;
 	private Punto anterior;
 	private int direccion;
+	private ThreadTimer timer;
 	
 	public JVentanaGrafica() {
 		super("Ejemplo Básico de Graphics");
@@ -47,9 +47,13 @@ public class JVentanaGrafica extends JFrame{
 		this.anterior = this.snake.get(0).getCentro().clone();
 		this.direccion = ARRIBA;
 		
+		this.timer = new ThreadTimer(this);
+		
+		setVisible(true);
+		timer.start();
 	}
 	
-	private void reacomodarCuerpo() {
+	public void reacomodarCuerpo() {
 		for (int i = 1; i < this.snake.size(); i++) {
 			Punto aux = this.snake.get(i).getCentro().clone();
 			this.snake.get(i).setCentro(this.anterior.clone());
@@ -59,45 +63,65 @@ public class JVentanaGrafica extends JFrame{
 		contentPane.setSnake(this.snake);
 	}
 	
-	public void setMovimiento(KeyEvent evento){
+	public void refrescarAnterior() {
 		this.anterior = this.snake.get(0).getCentro().clone();
+	}
+	
+	public void setMovimiento(KeyEvent evento){
+//		this.anterior = this.snake.get(0).getCentro().clone();
 		if(evento.getKeyCode() == KeyEvent.VK_A) {
 			if(this.direccion == DERECHA)
 				return;
 			this.direccion = IZQUIERDA;
-			this.snake.get(0).desplazarHorizontalmente(-this.rad);
-			reacomodarCuerpo();
+//			this.snake.get(0).desplazarHorizontalmente(-this.rad);
+//			reacomodarCuerpo();
 		}
 		
 		if(evento.getKeyCode() == KeyEvent.VK_D) {
 			if(this.direccion == IZQUIERDA)
 				return;
 			this.direccion = DERECHA;
-			this.snake.get(0).desplazarHorizontalmente(this.rad);
-			reacomodarCuerpo();	
+//			this.snake.get(0).desplazarHorizontalmente(this.rad);
+//			reacomodarCuerpo();	
 		}
 		
 		if(evento.getKeyCode() == KeyEvent.VK_W) {
 			if(this.direccion == ABAJO)
 				return;
 			this.direccion = ARRIBA;
-			this.snake.get(0).desplazarVerticalmente(-this.rad);
-			reacomodarCuerpo();
+//			this.snake.get(0).desplazarVerticalmente(-this.rad);
+//			reacomodarCuerpo();
 		}
 		
 		if(evento.getKeyCode() == KeyEvent.VK_S) {
 			if(this.direccion == ARRIBA)
 				return;
 			this.direccion = ABAJO;
-			this.snake.get(0).desplazarVerticalmente(this.rad);
-			reacomodarCuerpo();	
+//			this.snake.get(0).desplazarVerticalmente(this.rad);
+//			reacomodarCuerpo();	
 		}
 		
+//		refrescarPantalla();
+	}
+	
+	public void refrescarPantalla() {
 		repaint();
 	}
 
+	public int getDireccion() {
+		return direccion;
+	}
+
+	public List<Circulo> getSnake() {
+		return snake;
+	}
+
+	public int getRad() {
+		return rad;
+	}
+
 	public static void main(String[] args) {
-		new JVentanaGrafica().setVisible(true);
+		JVentanaGrafica game = new JVentanaGrafica();
 	}
 
 }

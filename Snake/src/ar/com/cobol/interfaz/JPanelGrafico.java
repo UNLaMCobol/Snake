@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.Polygon;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import javax.swing.JPanel;
 
@@ -13,13 +14,18 @@ import ar.com.cobol.figura.Punto;
 public class JPanelGrafico extends JPanel {
 
 	private List<Circulo> snake;
+	private Circulo fruta;
+	private int[] posMapa = {0, 50, 100, 150, 200, 250, 300, 350, 400};
+	private Random r;
 
-	public JPanelGrafico(Circulo circulo, Circulo c2) {
-		
-		snake = new ArrayList<Circulo>();
+	public JPanelGrafico() {
+		r = new Random();
+		this.snake = new ArrayList<Circulo>();
 		for (int i = 100; i <= 200; i+=50) {
 			snake.add(new Circulo(new Punto(100, i), 50));
 		}
+		Punto posFruta = new Punto(this.posMapa[r.nextInt(posMapa.length)], this.posMapa[r.nextInt(posMapa.length)]);
+		this.fruta = new Circulo(posFruta, 50);
 	}
 
 	public void paintComponent(Graphics g) {		
@@ -31,12 +37,22 @@ public class JPanelGrafico extends JPanel {
 			g.fillOval((int) snake.get(i).getCentro().getX(), (int) snake.get(i).getCentro().getY(), (int) snake.get(i).getRadio(),
 					(int) snake.get(i).getRadio());
 		}
+		g.setColor(Color.RED);
+		g.fillOval(fruta.getCentro().getX(), fruta.getCentro().getY(), (int) fruta.getRadio(), (int) fruta.getRadio());
 	}
 	
 	public List<Circulo> getSnake() {
 		return this.snake;
 	}
 	
+	public Circulo getFruta() {
+		return fruta;
+	}
+	
+	public int[] getPosMapa() {
+		return this.posMapa;
+	}
+
 	public void setSnake(List<Circulo> snake) {
 		this.snake = snake;
 	}

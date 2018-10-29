@@ -10,6 +10,7 @@ import java.awt.Color;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.List;
+import java.util.Random;
 import static ar.com.cobol.resources.directionUtils.*;
 
 
@@ -18,10 +19,12 @@ public class JVentanaGrafica extends JFrame{
 	
 	private JPanelGrafico contentPane;
 	private List<Circulo> snake;
+	private Circulo fruta;
 	private int rad;
 	private Punto anterior;
 	private int direccion;
 	private ThreadTimer timer;
+	private int[] posMapa;
 	
 	public JVentanaGrafica() {
 		super("Ejemplo Básico de Graphics");
@@ -35,7 +38,7 @@ public class JVentanaGrafica extends JFrame{
 		});
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 500);
-		contentPane = new JPanelGrafico(new Circulo(new Punto(100, 100), 50), new Circulo(new Punto(100, 60), 50));
+		contentPane = new JPanelGrafico();
 		setBackground(Color.WHITE);
 	
 		setContentPane(contentPane);
@@ -43,9 +46,11 @@ public class JVentanaGrafica extends JFrame{
 		setLocationRelativeTo(null);
 		
 		this.snake = contentPane.getSnake();
+		this.fruta = contentPane.getFruta();
 		this.rad = (int) this.snake.get(0).getRadio();
 		this.anterior = this.snake.get(0).getCentro().clone();
 		this.direccion = ARRIBA;
+		this.posMapa = contentPane.getPosMapa();
 		
 		this.timer = new ThreadTimer(this);
 		
@@ -61,6 +66,10 @@ public class JVentanaGrafica extends JFrame{
 			
 		}
 		contentPane.setSnake(this.snake);
+	}
+	
+	public void reacomodarFruta() {
+		this.fruta.setCentro(new Punto(this.posMapa[new Random().nextInt(this.posMapa.length)], this.posMapa[new Random().nextInt(this.posMapa.length)]));
 	}
 	
 	public void refrescarAnterior() {
@@ -107,6 +116,10 @@ public class JVentanaGrafica extends JFrame{
 
 	public int getRad() {
 		return rad;
+	}
+
+	public Circulo getFruta() {
+		return fruta;
 	}
 
 	public static void main(String[] args) {

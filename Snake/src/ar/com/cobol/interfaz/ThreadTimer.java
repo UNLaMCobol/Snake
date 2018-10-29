@@ -43,6 +43,15 @@ public class ThreadTimer extends Thread{
 				game.reacomodarCuerpo();
 			}
 			
+			int posXSnake = game.getSnake().get(0).getCentro().getX();
+			int posYSnake = game.getSnake().get(0).getCentro().getY();
+			int posXFruta = game.getFruta().getCentro().getX();
+			int posYFruta = game.getFruta().getCentro().getY();
+			
+			if(posXSnake == posXFruta && posYSnake == posYFruta) {
+				game.reacomodarFruta();
+			}
+			
 			game.refrescarPantalla();
 			
 			this.cont++;

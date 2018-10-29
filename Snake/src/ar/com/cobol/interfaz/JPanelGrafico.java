@@ -1,10 +1,15 @@
 package ar.com.cobol.interfaz;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 import ar.com.cobol.figura.Circulo;
@@ -20,8 +25,11 @@ public class JPanelGrafico extends JPanel {
 	private Circulo fruta;
 	private int[] posMapa /*= {0, 50, 100, 150, 200, 250, 300, 350, 400}*/;
 	private Random r;
+	private BufferedImage head;
+	private BufferedImage body;
+	private BufferedImage fruit;
 
-	public JPanelGrafico() {
+	public JPanelGrafico() throws IOException {
 		r = new Random();
 		
 		posMapa = new int[(MAX_MAP/MOVIMIENTO) + 1];
@@ -37,20 +45,33 @@ public class JPanelGrafico extends JPanel {
 		
 		Punto posFruta = new Punto(this.posMapa[r.nextInt(posMapa.length)], this.posMapa[r.nextInt(posMapa.length)]);
 		this.fruta = new Circulo(posFruta, 50);
+		
+		head = ImageIO.read(new File("resources\\Pelado.png"));
+		body = ImageIO.read(new File("resources\\2.png"));
+		fruit = ImageIO.read(new File("resources\\swipl.png"));
 	}
 
 	public void paintComponent(Graphics g) {		
-		g.setColor(Color.GRAY);
-		g.fillOval((int) snake.get(0).getCentro().getX(), (int) snake.get(0).getCentro().getY(), (int) snake.get(0).getRadio(),
-				(int) snake.get(0).getRadio());
-		g.setColor(Color.LIGHT_GRAY);
+		g.drawImage(head, snake.get(0).getCentro().getX(), snake.get(0).getCentro().getY(), null);
 		for (int i = 1; i < snake.size(); i++) {
-			g.fillOval((int) snake.get(i).getCentro().getX(), (int) snake.get(i).getCentro().getY(), (int) snake.get(i).getRadio(),
-					(int) snake.get(i).getRadio());
+			g.drawImage(body, snake.get(i).getCentro().getX(), snake.get(i).getCentro().getY(), null);
 		}
-		g.setColor(Color.RED);
-		g.fillOval(fruta.getCentro().getX(), fruta.getCentro().getY(), (int) fruta.getRadio(), (int) fruta.getRadio());
+		g.drawImage(fruit, fruta.getCentro().getX(), fruta.getCentro().getY(), null);
 	}
+	
+//	Este seria el legal
+//	public void paintComponent(Graphics g) {
+//		g.setColor(Color.GRAY);
+//		g.fillOval((int) snake.get(0).getCentro().getX(), (int) snake.get(0).getCentro().getY(), (int) snake.get(0).getRadio(),
+//				(int) snake.get(0).getRadio());
+//		g.setColor(Color.LIGHT_GRAY);
+//		for (int i = 1; i < snake.size(); i++) {
+//			g.fillOval((int) snake.get(i).getCentro().getX(), (int) snake.get(i).getCentro().getY(), (int) snake.get(i).getRadio(),
+//					(int) snake.get(i).getRadio());
+//		}
+//		g.setColor(Color.RED);
+//		g.fillOval(fruta.getCentro().getX(), fruta.getCentro().getY(), (int) fruta.getRadio(), (int) fruta.getRadio());
+//	}
 	
 	public List<Circulo> getSnake() {
 		return this.snake;

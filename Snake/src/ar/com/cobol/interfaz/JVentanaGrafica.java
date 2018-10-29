@@ -9,6 +9,7 @@ import java.awt.Color;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.util.List;
 import java.util.Random;
 import static ar.com.cobol.resources.directionUtils.*;
@@ -27,7 +28,7 @@ public class JVentanaGrafica extends JFrame{
 	private int[] posMapa;
 	private int maxMap;
 	
-	public JVentanaGrafica() {
+	public JVentanaGrafica() throws IOException {
 		super("Ejemplo Básico de Graphics");
 		setResizable(false);
 		
@@ -191,7 +192,7 @@ public class JVentanaGrafica extends JFrame{
 		return fruta;
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		new JVentanaGrafica();
 	}
 

@@ -25,6 +25,7 @@ public class JVentanaGrafica extends JFrame{
 	private Punto anterior;
 	private int direccion;
 	private ThreadTimer timer;
+	private int[][] posMapaItems;
 	private int[] posMapa;
 	private int maxMap;
 	
@@ -54,6 +55,16 @@ public class JVentanaGrafica extends JFrame{
 		this.direccion = ARRIBA;
 		this.posMapa = contentPane.getPosMapa();
 		this.maxMap = contentPane.getMAX_MAP();
+		this.posMapaItems = contentPane.getPosMapaItems();
+		
+	/*	for (int i = 0; i < posMapa.length; i++) {
+			for (int j = 0; j < posMapa.length; j++) {
+				System.out.print("i:" + i +"j:"+ j + "=" + this.posMapa[i][j] + "/");
+			}
+			System.out.println("");
+		}*/
+		
+	
 		
 		this.timer = new ThreadTimer(this);
 		
@@ -61,29 +72,32 @@ public class JVentanaGrafica extends JFrame{
 		timer.start();
 	}
 	
-	public boolean mirarSiHayFruta(int direc) {
+	public int mirarSiHayFruta(int direc) {
 		
-		int posXSnake = this.snake.get(0).getCentro().getX();
+		/*int posXSnake = this.snake.get(0).getCentro().getX();
 		int posYSnake = this.snake.get(0).getCentro().getY();;
 		int posXFruta = this.fruta.getCentro().getX();
-		int posYFruta = this.fruta.getCentro().getY();
+		int posYFruta = this.fruta.getCentro().getY();*/
+	
 		
-		if(direc == ARRIBA && (posXSnake == posXFruta && posYSnake-MOVIMIENTO == posYFruta)) {
-			return true;
+		if(direc == ARRIBA) {
+			return posMapaItems[ this.snake.get(0).getCentro().getY()/MOVIMIENTO-1][ this.snake.get(0).getCentro().getX()/MOVIMIENTO];
+			 
 		}
 		
-		if(direc == ABAJO && (posXSnake == posXFruta && posYSnake+MOVIMIENTO == posYFruta)) {
-			return true;
+		if(direc == ABAJO ) {
+			return posMapaItems[ this.snake.get(0).getCentro().getY()/MOVIMIENTO+1][ this.snake.get(0).getCentro().getX()/MOVIMIENTO];
 		}
 		
-		if(direc == IZQUIERDA && (posXSnake-MOVIMIENTO == posXFruta && posYSnake == posYFruta)) {
-			return true;
+		if(direc == IZQUIERDA) {
+			return posMapaItems[ this.snake.get(0).getCentro().getY()/MOVIMIENTO][ this.snake.get(0).getCentro().getX()/MOVIMIENTO-1];
 		}
 
-		if(direc == DERECHA && (posXSnake+MOVIMIENTO == posXFruta && posYSnake == posYFruta)) {
-			return true;
+		if(direc == DERECHA ) {
+			return posMapaItems[ this.snake.get(0).getCentro().getY()/MOVIMIENTO][ this.snake.get(0).getCentro().getX()/MOVIMIENTO+1];
 		}
-		return false;
+		return 0;
+
 	}
 	
 	public void agregarCuerpo() {
@@ -92,21 +106,61 @@ public class JVentanaGrafica extends JFrame{
 	}
 	
 	public void reacomodarCuerpo() {
+		
+		posMapaItems[this.snake.get(0).getCentro().getY()/MOVIMIENTO][this.snake.get(0).getCentro().getX()/MOVIMIENTO]=1;
+		posMapaItems[this.snake.get(this.snake.size()-1).getCentro().getY()/MOVIMIENTO][this.snake.get(this.snake.size()-1).getCentro().getX()/MOVIMIENTO]=0;
+		
 		for (int i = 1; i < this.snake.size(); i++) {
+			
+			
 			Punto aux = this.snake.get(i).getCentro().clone();
 			this.snake.get(i).setCentro(this.anterior.clone());
 			this.anterior = aux.clone();
 			
 		}
+	
 		contentPane.setSnake(this.snake);
+		System.out.println("");
+		for (int i = 0; i < posMapaItems.length; i++) {
+			for (int j = 0; j < posMapaItems.length; j++) {
+				System.out.print(posMapaItems[i][j] + " ");
+			}
+			System.out.println("");}
+		System.out.println("");
+		
 	}
 	
 	public void reacomodarFruta() {
-		this.fruta.setCentro(new Punto(this.posMapa[new Random().nextInt(this.posMapa.length)], this.posMapa[new Random().nextInt(this.posMapa.length)]));
+		
+		posMapaItems[this.fruta.getCentro().getY()/MOVIMIENTO][this.fruta.getCentro().getX()/MOVIMIENTO]=1;
+		
+		Punto posFruta;
+		Random r = new Random();
+		do {
+			posFruta = new Punto(this.posMapa[r.nextInt(posMapa.length)], this.posMapa[r.nextInt(posMapa.length)]);
+		}while(posMapaItems[posFruta.getY()/MOVIMIENTO][posFruta.getX()/MOVIMIENTO]!=0);
+		
+		this.fruta.setCentro(posFruta);
+		
+		
+		posMapaItems[this.fruta.getCentro().getY()/MOVIMIENTO][this.fruta.getCentro().getX()/MOVIMIENTO]=2;
+		//this.fruta.setCentro(new Punto(new Random().nextInt(posMapa.length), new Random().nextInt(posMapa.length)));
+		
 	}
 	
 	public void refrescarAnterior() {
 		this.anterior = this.snake.get(0).getCentro().clone();
+	}
+	
+	
+	
+	public void matarViborita() {
+		
+		for (int i = 0; i < this.snake.size(); i++) {
+			
+			posMapaItems[this.snake.get(i).getCentro().getY()][this.snake.get(i).getCentro().getY()]=0;
+		}
+		
 	}
 	
 	public void setMovimiento(KeyEvent evento){

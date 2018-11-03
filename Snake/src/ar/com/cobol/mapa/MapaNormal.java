@@ -8,7 +8,7 @@ import ar.com.cobol.figura.Punto;
 
 public class MapaNormal implements Mapa {
 
-    private static final int TAM = 15;
+    private static final int TAM = 8;
     private int[][] mapa;
 
     public MapaNormal(){

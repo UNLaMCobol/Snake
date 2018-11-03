@@ -14,6 +14,8 @@ import javax.swing.JPanel;
 
 import ar.com.cobol.figura.Circulo;
 import ar.com.cobol.figura.Punto;
+import ar.com.cobol.mapa.MapaNormal;
+
 import static ar.com.cobol.resources.directionUtils.*;
 
 public class JPanelGrafico extends JPanel {
@@ -23,7 +25,9 @@ public class JPanelGrafico extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private List<Circulo> snake;
 	private Circulo fruta;
-	private int[] posMapa /*= {0, 50, 100, 150, 200, 250, 300, 350, 400}*/;
+	//private int[] posMapa /*= {0, 50, 100, 150, 200, 250, 300, 350, 400}*/;
+	private int[] posMapa;
+	private int[][] posMapaItems;
 	private Random r;
 	private BufferedImage head;
 	private BufferedImage body;
@@ -32,23 +36,53 @@ public class JPanelGrafico extends JPanel {
 	public JPanelGrafico() throws IOException {
 		r = new Random();
 		
+		
+		int cont = 0;
 		posMapa = new int[(MAX_MAP/MOVIMIENTO) + 1];
 		posMapa[0] = 0;
 		for (int i = 1; i < posMapa.length; i++) {
 			posMapa[i] = posMapa[i-1] + MOVIMIENTO;
 		}
 		
+		posMapaItems  = new int[(MAX_MAP/MOVIMIENTO) + 1][(MAX_MAP/MOVIMIENTO) + 1];
+		for (int i = 0; i < posMapaItems.length; i++) {
+			for (int j = 0; j < posMapaItems.length; j++) {
+				posMapaItems[i][j] = 0;
+			}
+		}
+		
+		
 		this.snake = new ArrayList<Circulo>();
 		for (int i = 100; i <= 200; i+=50) {
 			snake.add(new Circulo(new Punto(100, i), 50));
+			
+			posMapaItems[i/MOVIMIENTO][100/MOVIMIENTO]=1;
+			
 		}
 		
-		Punto posFruta = new Punto(this.posMapa[r.nextInt(posMapa.length)], this.posMapa[r.nextInt(posMapa.length)]);
+		
+		Punto posFruta;
+		do {
+			posFruta = new Punto(this.posMapa[r.nextInt(posMapa.length)], this.posMapa[r.nextInt(posMapa.length)]);
+		}while(posMapaItems[posFruta.getY()/MOVIMIENTO][posFruta.getX()/MOVIMIENTO]!=0);
+		
 		this.fruta = new Circulo(posFruta, 50);
+		posMapaItems[posFruta.getY()/MOVIMIENTO][posFruta.getX()/MOVIMIENTO]=2;
+		
+		for (int i = 0; i < posMapaItems.length; i++) {
+		for (int j = 0; j < posMapaItems.length; j++) {
+			System.out.print(posMapaItems[i][j] + " ");
+		}
+		System.out.println("");
+	}
 		
 		head = ImageIO.read(new File("resources\\Pelado.png"));
 		body = ImageIO.read(new File("resources\\2.png"));
 		fruit = ImageIO.read(new File("resources\\swipl.png"));
+	}
+
+	public int[][] getPosMapaItems() {
+		return posMapaItems;
 	}
 
 	public void paintComponent(Graphics g) {		

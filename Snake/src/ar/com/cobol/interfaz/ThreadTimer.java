@@ -24,44 +24,58 @@ public class ThreadTimer extends Thread{
 			game.refrescarAnterior();
 			
 			if(game.getDireccion() == ARRIBA) {
-				if(game.mirarSiHayFruta(ARRIBA)) {
+				if(game.mirarSiHayFruta(ARRIBA)==2) {
 					game.agregarCuerpo();
 					game.reacomodarFruta();
 				}
-				else {
+				else if(game.mirarSiHayFruta(ARRIBA)==1){
+					System.out.println("PERDISTEEEEE");
+					MIF=0;
+				}
+				else{
+					
 					game.getSnake().get(0).desplazarVerticalmente(-game.getRad());
 					game.reacomodarCuerpo();					
 				}
 			}
 			
 			if(game.getDireccion() == ABAJO) {
-				if(game.mirarSiHayFruta(ABAJO)) {
+				if(game.mirarSiHayFruta(ABAJO)==2) {
 					game.agregarCuerpo();
 					game.reacomodarFruta();
 				}
-				else {
+				else if(game.mirarSiHayFruta(ABAJO)==1){
+					System.out.println("PERDISTEEEEE");
+					MIF=0;
+				}else {
 					game.getSnake().get(0).desplazarVerticalmente(game.getRad());
 					game.reacomodarCuerpo();					
 				}
 			}
 			
 			if(game.getDireccion() == IZQUIERDA) {
-				if(game.mirarSiHayFruta(IZQUIERDA)) {
+				if(game.mirarSiHayFruta(IZQUIERDA)==2) {
 					game.agregarCuerpo();
 					game.reacomodarFruta();
 				}
-				else {
+				else if(game.mirarSiHayFruta(IZQUIERDA)==1){
+					System.out.println("PERDISTEEEEE");
+					MIF=0;
+				}else {
 					game.getSnake().get(0).desplazarHorizontalmente(-game.getRad());
 					game.reacomodarCuerpo();					
 				}
 			}
 			
 			if(game.getDireccion() == DERECHA) {
-				if(game.mirarSiHayFruta(DERECHA)) {
+				if(game.mirarSiHayFruta(DERECHA)==2) {
 					game.agregarCuerpo();
 					game.reacomodarFruta();
 				}
-				else {
+				else if(game.mirarSiHayFruta(DERECHA)==1){
+					System.out.println("PERDISTEEEEE");
+					MIF=0;
+				}else {
 					game.getSnake().get(0).desplazarHorizontalmente(game.getRad());
 					game.reacomodarCuerpo();					
 				}

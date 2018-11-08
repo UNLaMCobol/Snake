@@ -53,8 +53,8 @@ public class JPanelGrafico extends JPanel {
 		
 		
 		this.snake = new ArrayList<Circulo>();
-		for (int i = 100; i <= 200; i+=50) {
-			snake.add(new Circulo(new Punto(100, i), 50));
+		for (int i = 40; i <= 80; i+=20) {
+			snake.add(new Circulo(new Punto(100, i), 20));
 			
 			posMapaItems[i/MOVIMIENTO][100/MOVIMIENTO]=1;
 			
@@ -66,7 +66,7 @@ public class JPanelGrafico extends JPanel {
 			posFruta = new Punto(this.posMapa[r.nextInt(posMapa.length)], this.posMapa[r.nextInt(posMapa.length)]);
 		}while(posMapaItems[posFruta.getY()/MOVIMIENTO][posFruta.getX()/MOVIMIENTO]!=0);
 		
-		this.fruta = new Circulo(posFruta, 50);
+		this.fruta = new Circulo(posFruta, 20);
 		posMapaItems[posFruta.getY()/MOVIMIENTO][posFruta.getX()/MOVIMIENTO]=2;
 		
 		for (int i = 0; i < posMapaItems.length; i++) {
@@ -85,27 +85,27 @@ public class JPanelGrafico extends JPanel {
 		return posMapaItems;
 	}
 
-	public void paintComponent(Graphics g) {		
-		g.drawImage(head, snake.get(0).getCentro().getX(), snake.get(0).getCentro().getY(), null);
-		for (int i = 1; i < snake.size(); i++) {
-			g.drawImage(body, snake.get(i).getCentro().getX(), snake.get(i).getCentro().getY(), null);
-		}
-		g.drawImage(fruit, fruta.getCentro().getX(), fruta.getCentro().getY(), null);
-	}
+//	public void paintComponent(Graphics g) {		
+//		g.drawImage(head, snake.get(0).getCentro().getX(), snake.get(0).getCentro().getY(), null);
+//		for (int i = 1; i < snake.size(); i++) {
+//			g.drawImage(body, snake.get(i).getCentro().getX(), snake.get(i).getCentro().getY(), null);
+//		}
+//		g.drawImage(fruit, fruta.getCentro().getX(), fruta.getCentro().getY(), null);
+//	}
 	
 //	Este seria el legal
-//	public void paintComponent(Graphics g) {
-//		g.setColor(Color.GRAY);
-//		g.fillOval((int) snake.get(0).getCentro().getX(), (int) snake.get(0).getCentro().getY(), (int) snake.get(0).getRadio(),
-//				(int) snake.get(0).getRadio());
-//		g.setColor(Color.LIGHT_GRAY);
-//		for (int i = 1; i < snake.size(); i++) {
-//			g.fillOval((int) snake.get(i).getCentro().getX(), (int) snake.get(i).getCentro().getY(), (int) snake.get(i).getRadio(),
-//					(int) snake.get(i).getRadio());
-//		}
-//		g.setColor(Color.RED);
-//		g.fillOval(fruta.getCentro().getX(), fruta.getCentro().getY(), (int) fruta.getRadio(), (int) fruta.getRadio());
-//	}
+	public void paintComponent(Graphics g) {
+		g.setColor(Color.GRAY);
+		g.fillOval((int) snake.get(0).getCentro().getX(), (int) snake.get(0).getCentro().getY(), (int) snake.get(0).getRadio(),
+				(int) snake.get(0).getRadio());
+		g.setColor(Color.LIGHT_GRAY);
+		for (int i = 1; i < snake.size(); i++) {
+			g.fillOval((int) snake.get(i).getCentro().getX(), (int) snake.get(i).getCentro().getY(), (int) snake.get(i).getRadio(),
+					(int) snake.get(i).getRadio());
+		}
+		g.setColor(Color.RED);
+		g.fillOval(fruta.getCentro().getX(), fruta.getCentro().getY(), (int) fruta.getRadio(), (int) fruta.getRadio());
+	}
 	
 	public List<Circulo> getSnake() {
 		return this.snake;

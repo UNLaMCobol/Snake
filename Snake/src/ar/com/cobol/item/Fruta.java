@@ -1,17 +1,13 @@
 package ar.com.cobol.item;
 
+import ar.com.cobol.figura.Circulo;
 import ar.com.cobol.figura.Punto;
 import ar.com.cobol.snake.Salamandra;
 
 public class Fruta extends Item{
 
-    public Fruta(Punto posicion){
-        super(posicion);
-    }
-
-    @Override
-    public void handleItem(Salamandra salamandra){
-        salamandra.addParteDelCuerpo();
+    public Fruta(Circulo item){
+        super(item);
     }
 
 }

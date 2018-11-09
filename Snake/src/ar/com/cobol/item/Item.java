@@ -1,19 +1,20 @@
 package ar.com.cobol.item;
 
+import ar.com.cobol.figura.Circulo;
 import ar.com.cobol.figura.Punto;
 import ar.com.cobol.snake.Salamandra;
 
 public abstract class Item {
 
-	private Punto posicion;
+	private Circulo item;
 
-	public Item(Punto posicion){
-	    this.posicion = posicion;
+	public Item(Circulo item){
+	    this.item = item;
     }
 
 	public void handleItem(Salamandra salamandra){}
 
-    public Punto getPosicion() {
-        return posicion;
+    public Circulo getItem() {
+        return item;
     }
 }

@@ -48,7 +48,7 @@ public class MapaNormal implements Mapa {
 
 	private void ubicarSalamandraEnElMapa() {
 		for (int i = 0; i <= MOVIMIENTO * 3; i += MOVIMIENTO) {
-			snake.addBody(i/MOVIMIENTO, new Circulo(new Punto(100, i), MOVIMIENTO));
+			snake.addBody(i / MOVIMIENTO, new Circulo(new Punto(100, i), MOVIMIENTO));
 			posMapaItems[i / MOVIMIENTO][100 / MOVIMIENTO] = SNAKE;
 		}
 	}
@@ -69,22 +69,24 @@ public class MapaNormal implements Mapa {
 
 	public ObjetosDelMapa mirarSiHayItem(Direcciones direc) {
 
-		if (direc == ARRIBA) {
+		if (direc == ARRIBA && ((this.snake.getBody().get(0).getCentro().getY() / MOVIMIENTO) - 1) >= 0) {
 			return this.getPosMapaItems()[this.snake.getBody().get(0).getCentro().getY() / MOVIMIENTO - 1][this.snake
 					.getBody().get(0).getCentro().getX() / MOVIMIENTO];
 		}
 
-		if (direc == ABAJO) {
+		if (direc == ABAJO
+				&& ((this.snake.getBody().get(0).getCentro().getY() / MOVIMIENTO) + 1) <= MAX_MAP / MOVIMIENTO) {
 			return this.getPosMapaItems()[this.snake.getBody().get(0).getCentro().getY() / MOVIMIENTO + 1][this.snake
 					.getBody().get(0).getCentro().getX() / MOVIMIENTO];
 		}
 
-		if (direc == IZQUIERDA) {
+		if (direc == IZQUIERDA && ((this.snake.getBody().get(0).getCentro().getX() / MOVIMIENTO) - 1) >= 0) {
 			return this.getPosMapaItems()[this.snake.getBody().get(0).getCentro().getY()
 					/ MOVIMIENTO][this.snake.getBody().get(0).getCentro().getX() / MOVIMIENTO - 1];
 		}
 
-		if (direc == DERECHA) {
+		if (direc == DERECHA
+				&& ((this.snake.getBody().get(0).getCentro().getX() / MOVIMIENTO) + 1) <= MAX_MAP / MOVIMIENTO) {
 			return this.getPosMapaItems()[this.snake.getBody().get(0).getCentro().getY()
 					/ MOVIMIENTO][this.snake.getBody().get(0).getCentro().getX() / MOVIMIENTO + 1];
 		}
@@ -98,8 +100,13 @@ public class MapaNormal implements Mapa {
 
 	public void reacomodarCuerpo() {
 
-		this.posMapaItems[this.snake.getBody().get(0).getCentro().getY() / MOVIMIENTO][this.snake.getBody().get(0)
-				.getCentro().getX() / MOVIMIENTO] = SNAKE;
+
+		if ((this.snake.getBody().get(0).getCentro().getY() / MOVIMIENTO >= 0)
+				&& (this.snake.getBody().get(0).getCentro().getY() / MOVIMIENTO <= MAX_MAP/MOVIMIENTO)
+				&& (this.snake.getBody().get(0).getCentro().getX() / MOVIMIENTO >= 0)
+				&& (this.snake.getBody().get(0).getCentro().getX() / MOVIMIENTO <= MAX_MAP/MOVIMIENTO)) {
+			this.posMapaItems[this.snake.getBody().get(0).getCentro().getY() / MOVIMIENTO][this.snake.getBody().get(0)
+					.getCentro().getX() / MOVIMIENTO] = SNAKE;}
 		this.posMapaItems[this.snake.getBody().get(this.snake.getBody().size() - 1).getCentro().getY()
 				/ MOVIMIENTO][this.snake.getBody().get(this.snake.getBody().size() - 1).getCentro().getX()
 						/ MOVIMIENTO] = VACIO;
@@ -124,58 +131,58 @@ public class MapaNormal implements Mapa {
 	public void refrescarAnterior() {
 		this.anterior = this.snake.getBody().get(0).getCentro().clone();
 	}
-	
-	//TODO: REVISAR
+
+	// TODO: REVISAR
 	public void matarViborita() {
 		for (int i = 0; i < this.snake.getBody().size(); i++) {
-			posMapaItems[this.snake.getBody().get(i).getCentro().getY()][this.snake.getBody().get(i).getCentro().getY()] = VACIO;
+			posMapaItems[this.snake.getBody().get(i).getCentro().getY()][this.snake.getBody().get(i).getCentro()
+					.getY()] = VACIO;
 		}
 	}
-	
-	public void setMovimiento(Direcciones direccion){
-		if(opuesto(this.snake.getDireccion()) == direccion)
+
+	public void setMovimiento(Direcciones direccion) {
+		if (opuesto(this.snake.getDireccion()) == direccion)
 			return;
 		this.snake.setDireccion(direccion);
 	}
-	
+
 	public Direcciones seFueDeRango() {
-		if(this.snake.getBody().get(0).getCentro().getX() > MAX_MAP) {
+		if (this.snake.getBody().get(0).getCentro().getX() > MAX_MAP) {
 			return DERECHA;
 		}
-		
-		if(this.snake.getBody().get(0).getCentro().getX() < 0) {
+
+		if (this.snake.getBody().get(0).getCentro().getX() < 0) {
 			return IZQUIERDA;
 		}
-		
-		if(this.snake.getBody().get(0).getCentro().getY() < 0) {
+
+		if (this.snake.getBody().get(0).getCentro().getY() < 0) {
 			return ARRIBA;
 		}
-		
-		if(this.snake.getBody().get(0).getCentro().getY() > MAX_MAP) {
+
+		if (this.snake.getBody().get(0).getCentro().getY() > MAX_MAP) {
 			return ABAJO;
 		}
-		
+
 		return null;
 	}
-	
+
 	@Deprecated
 	public void pasarDeLado(Direcciones direc) {
 		Punto pasaDeLado = null;
-		if(direc == ARRIBA) {
+		if (direc == ARRIBA) {
 			pasaDeLado = new Punto(this.snake.getBody().get(0).getCentro().getX(), MAX_MAP);
 		}
-		if(direc == ABAJO) {
+		if (direc == ABAJO) {
 			pasaDeLado = new Punto(this.snake.getBody().get(0).getCentro().getX(), 0);
 		}
-		if(direc == IZQUIERDA) {
+		if (direc == IZQUIERDA) {
 			pasaDeLado = new Punto(MAX_MAP, this.snake.getBody().get(0).getCentro().getY());
 		}
-		if(direc == DERECHA) {
+		if (direc == DERECHA) {
 			pasaDeLado = new Punto(0, this.snake.getBody().get(0).getCentro().getY());
 		}
-		this.snake.getBody().get(0).setCentro(pasaDeLado);			
+		this.snake.getBody().get(0).setCentro(pasaDeLado);
 	}
-	
 
 	public ObjetosDelMapa[][] getPosMapaItems() {
 		return this.posMapaItems;

@@ -6,8 +6,8 @@ import ar.com.cobol.snake.Salamandra;
 
 public class Fruta extends Item{
 
-    public Fruta(Circulo item){
-        super(item);
+    public Fruta(Circulo circulo){
+        super(circulo);
     }
 
 }

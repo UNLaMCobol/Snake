@@ -12,98 +12,92 @@ import static ar.com.cobol.mapa.ObjetosDelMapa.*;
 
 public class MapaNormal implements Mapa {
 
-	private static final int MAX_MAP = 400;
-
-	private int[] posMapa;
-	private ObjetosDelMapa[][] posMapaItems;
+	private int tam;
+	private ObjetosDelMapa[][] mapa;
 	private Salamandra snake;
 	private Punto anterior;
 	private Fruta fruta;
 
-	public MapaNormal() {
+	public MapaNormal(int tam) {
 		snake = new Salamandra();
-		this.generarVectorDePosicionesValidas();
+		this.tam = tam;
 		this.generarMatrizDeItemsEnElMapa();
 		this.ubicarSalamandraEnElMapa();
 		this.ubicarFrutaEnElMapa(this.buscoPosicionVaciaParaLaFruta());
 		this.anterior = this.snake.getBody().get(0).getCentro().clone();
 	}
-
-	private void generarVectorDePosicionesValidas() {
-		this.posMapa = new int[(MAX_MAP / MOVIMIENTO) + 1];
-		this.posMapa[0] = 0;
-		for (int i = 1; i < this.posMapa.length; i++) {
-			this.posMapa[i] = this.posMapa[i - 1] + MOVIMIENTO;
-		}
-	}
-
+	
 	private void generarMatrizDeItemsEnElMapa() {
-		this.posMapaItems = new ObjetosDelMapa[(MAX_MAP / MOVIMIENTO) + 1][(MAX_MAP / MOVIMIENTO) + 1];
-		for (int i = 0; i < this.posMapaItems.length; i++) {
-			for (int j = 0; j < this.posMapaItems.length; j++) {
-				this.posMapaItems[i][j] = VACIO;
+		this.mapa = new ObjetosDelMapa[this.tam][this.tam];
+		for(int i = 0; i < this.mapa.length; i++) {
+			for(int j = 0; j < this.mapa.length; j++) {
+				this.mapa[i][j] = VACIO;
 			}
 		}
 	}
-
+	
 	private void ubicarSalamandraEnElMapa() {
-		for (int i = 0; i <= MOVIMIENTO * 3; i += MOVIMIENTO) {
-			snake.addBody(i/MOVIMIENTO, new Circulo(new Punto(100, i), MOVIMIENTO));
-			posMapaItems[i / MOVIMIENTO][100 / MOVIMIENTO] = SNAKE;
+		for(int i = 1; i <= 2; i++) {
+			snake.addBody(i-1, new Circulo(new Punto(3, i), TAMAÑO));
+			mapa[i][3] = SNAKE;
 		}
 	}
-
+	
 	private Punto buscoPosicionVaciaParaLaFruta() {
 		Random r = new Random();
 		Punto posFruta;
+		int x, y;
 		do {
-			posFruta = new Punto(this.posMapa[r.nextInt(posMapa.length)], this.posMapa[r.nextInt(posMapa.length)]);
-		} while (posMapaItems[posFruta.getY() / MOVIMIENTO][posFruta.getX() / MOVIMIENTO] != VACIO);
+			x = r.nextInt(this.tam);
+			y = r.nextInt(this.tam);
+			posFruta = new Punto(x, y);
+		} while(this.mapa[y][x] != VACIO);
 		return posFruta;
 	}
-
+	
 	private void ubicarFrutaEnElMapa(Punto posFruta) {
-		this.fruta = new Fruta(new Circulo(posFruta, MOVIMIENTO));
-		posMapaItems[posFruta.getY() / MOVIMIENTO][posFruta.getX() / MOVIMIENTO] = FRUTA;
+		this.fruta = new Fruta(new Circulo(posFruta, TAMAÑO));
+		mapa[posFruta.getY()][posFruta.getX()] = FRUTA;
 	}
-
+	
 	public ObjetosDelMapa mirarSiHayItem(Direcciones direc) {
-
-		if (direc == ARRIBA) {
-			return this.getPosMapaItems()[this.snake.getBody().get(0).getCentro().getY() / MOVIMIENTO - 1][this.snake
-					.getBody().get(0).getCentro().getX() / MOVIMIENTO];
+		
+		if(direc == ARRIBA) {
+			return this.mapa[this.snake.getHeadPoint().getY() - 1]
+									[this.snake.getHeadPoint().getX()];
 		}
-
-		if (direc == ABAJO) {
-			return this.getPosMapaItems()[this.snake.getBody().get(0).getCentro().getY() / MOVIMIENTO + 1][this.snake
-					.getBody().get(0).getCentro().getX() / MOVIMIENTO];
+		
+		if(direc == ABAJO) {
+			return this.mapa[this.snake.getHeadPoint().getY() + 1]
+									[this.snake.getHeadPoint().getX()];
 		}
-
-		if (direc == IZQUIERDA) {
-			return this.getPosMapaItems()[this.snake.getBody().get(0).getCentro().getY()
-					/ MOVIMIENTO][this.snake.getBody().get(0).getCentro().getX() / MOVIMIENTO - 1];
+		
+		if(direc == IZQUIERDA) {
+			return this.mapa[this.snake.getHeadPoint().getY()]
+									[this.snake.getHeadPoint().getX() - 1];
 		}
-
-		if (direc == DERECHA) {
-			return this.getPosMapaItems()[this.snake.getBody().get(0).getCentro().getY()
-					/ MOVIMIENTO][this.snake.getBody().get(0).getCentro().getX() / MOVIMIENTO + 1];
+		
+		if(direc == DERECHA) {
+			return this.mapa[this.snake.getHeadPoint().getY()]
+									[this.snake.getHeadPoint().getX() + 1];
 		}
+		
 		return VACIO;
 	}
 
 	public void agregarCuerpo() {
-		Circulo nuevoCuerpo = this.fruta.getItem().clone();
+		Circulo nuevoCuerpo = this.fruta.getCirculo().clone();
 		this.snake.addBody(0, nuevoCuerpo);
 	}
-
+	
 	public void reacomodarCuerpo() {
-
-		this.posMapaItems[this.snake.getBody().get(0).getCentro().getY() / MOVIMIENTO][this.snake.getBody().get(0)
-				.getCentro().getX() / MOVIMIENTO] = SNAKE;
-		this.posMapaItems[this.snake.getBody().get(this.snake.getBody().size() - 1).getCentro().getY()
-				/ MOVIMIENTO][this.snake.getBody().get(this.snake.getBody().size() - 1).getCentro().getX()
-						/ MOVIMIENTO] = VACIO;
-
+		
+		this.mapa[this.snake.getHeadPoint().getY()]
+						 [this.snake.getHeadPoint().getX()] = SNAKE;
+		
+		this.mapa[this.snake.getTailPoint().getY()]
+						 [this.snake.getTailPoint().getX()] = VACIO;
+		
 		for (int i = 1; i < this.snake.getBody().size(); i++) {
 			Punto aux = this.snake.getBody().get(i).getCentro().clone();
 			this.snake.getBody().get(i).setCentro(this.anterior.clone());
@@ -112,23 +106,25 @@ public class MapaNormal implements Mapa {
 	}
 
 	public void reacomodarFruta() {
-		posMapaItems[this.fruta.getItem().getCentro().getY() / MOVIMIENTO][this.fruta.getItem().getCentro().getX()
-				/ MOVIMIENTO] = SNAKE;
-
+		mapa[this.fruta.getCirculo().getCentro().getY()]
+					[this.fruta.getCirculo().getCentro().getX()] = SNAKE;
+		
 		this.ubicarFrutaEnElMapa(this.buscoPosicionVaciaParaLaFruta());
-
-		posMapaItems[this.fruta.getItem().getCentro().getY() / MOVIMIENTO][this.fruta.getItem().getCentro().getX()
-				/ MOVIMIENTO] = FRUTA;
+		
+		mapa[this.fruta.getCirculo().getCentro().getY()]
+					[this.fruta.getCirculo().getCentro().getX()] = FRUTA;
 	}
-
+	
 	public void refrescarAnterior() {
 		this.anterior = this.snake.getBody().get(0).getCentro().clone();
 	}
 	
+	
+	
 	//TODO: REVISAR
 	public void matarViborita() {
 		for (int i = 0; i < this.snake.getBody().size(); i++) {
-			posMapaItems[this.snake.getBody().get(i).getCentro().getY()][this.snake.getBody().get(i).getCentro().getY()] = VACIO;
+			mapa[this.snake.getBody().get(i).getCentro().getY()][this.snake.getBody().get(i).getCentro().getY()] = VACIO;
 		}
 	}
 	
@@ -139,46 +135,52 @@ public class MapaNormal implements Mapa {
 	}
 	
 	public Direcciones seFueDeRango() {
-		if(this.snake.getBody().get(0).getCentro().getX() > MAX_MAP) {
+		
+		int posX = this.snake.getHeadPoint().getX();
+		int posY = this.snake.getHeadPoint().getY();
+		
+		if(posX > this.mapa.length) {
 			return DERECHA;
 		}
 		
-		if(this.snake.getBody().get(0).getCentro().getX() < 0) {
+		if(posX < 0) {
 			return IZQUIERDA;
 		}
 		
-		if(this.snake.getBody().get(0).getCentro().getY() < 0) {
+		if(posY < 0) {
 			return ARRIBA;
 		}
 		
-		if(this.snake.getBody().get(0).getCentro().getY() > MAX_MAP) {
+		if(posY > this.mapa.length) {
 			return ABAJO;
 		}
 		
 		return null;
 	}
 	
-	@Deprecated
 	public void pasarDeLado(Direcciones direc) {
 		Punto pasaDeLado = null;
+		int posX = this.snake.getHeadPoint().getX();
+		int posY = this.snake.getHeadPoint().getY();
+		
 		if(direc == ARRIBA) {
-			pasaDeLado = new Punto(this.snake.getBody().get(0).getCentro().getX(), MAX_MAP);
+			pasaDeLado = new Punto(posX, this.mapa.length-1);
 		}
 		if(direc == ABAJO) {
-			pasaDeLado = new Punto(this.snake.getBody().get(0).getCentro().getX(), 0);
+			pasaDeLado = new Punto(posX, 0);
 		}
 		if(direc == IZQUIERDA) {
-			pasaDeLado = new Punto(MAX_MAP, this.snake.getBody().get(0).getCentro().getY());
+			pasaDeLado = new Punto(this.mapa.length-1, posY);
 		}
 		if(direc == DERECHA) {
-			pasaDeLado = new Punto(0, this.snake.getBody().get(0).getCentro().getY());
+			pasaDeLado = new Punto(0, posY);
 		}
 		this.snake.getBody().get(0).setCentro(pasaDeLado);			
 	}
 	
 
 	public ObjetosDelMapa[][] getPosMapaItems() {
-		return this.posMapaItems;
+		return this.mapa;
 	}
 
 	public Salamandra getSnake() {
@@ -188,9 +190,4 @@ public class MapaNormal implements Mapa {
 	public Fruta getFruta() {
 		return fruta;
 	}
-
-	public int[] getPosMapa() {
-		return this.posMapa;
-	}
-
 }

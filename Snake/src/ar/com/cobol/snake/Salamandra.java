@@ -3,6 +3,8 @@ package ar.com.cobol.snake;
 import java.util.ArrayList;
 import java.util.List;
 import ar.com.cobol.figura.Circulo;
+import ar.com.cobol.figura.Punto;
+
 import static ar.com.cobol.resources.DirectionUtils.*;
 import static ar.com.cobol.resources.DirectionUtils.Direcciones.*;
 
@@ -38,6 +40,14 @@ public class Salamandra{
 	
 	public void setDireccion(Direcciones direccion) {
 		this.direccion = direccion;
+	}
+	
+	public Punto getHeadPoint() {
+		return this.body.get(0).getCentro();
+	}
+	
+	public Punto getTailPoint() {
+		return this.body.get(this.body.size() - 1).getCentro();
 	}
 	
 }

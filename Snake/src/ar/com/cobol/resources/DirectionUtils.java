@@ -24,6 +24,6 @@ public class DirectionUtils {
 
 	public static final int MOVER_IZQ_O_ABAJO = -1;
 	public static final int MOVER_DER_O_ARRIBA = 1;
-	public static final int MOVIMIENTO = 10;
+	public static final int TAMAÑO = 10;
 
 }

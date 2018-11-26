@@ -1,6 +1,9 @@
 package ar.com.cobol.interfaz;
 
 import javax.swing.JPanel;
+
+import static ar.com.cobol.resources.DirectionUtils.TAMAÑO;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.io.IOException;
@@ -18,7 +21,7 @@ import ar.com.cobol.mapa.MapaNormal;
 
 public class GameGraphics extends JPanel {
 	
-	//private static final int MAX_MAP = 400;
+	private static final int MAX_MAP = 440;
 
 	private static final long serialVersionUID = 1L;
 //	private List<Circulo> snake;
@@ -32,25 +35,46 @@ public class GameGraphics extends JPanel {
 //	private BufferedImage fruit;
 	
 	private MapaNormal mapa;
+	private int[] posMapa;
 	
 	public GameGraphics() throws IOException {
-		mapa = new MapaNormal();
+		generarVectorDePosicionesValidas();
+		mapa = new MapaNormal(posMapa.length);
 //		head = ImageIO.read(new File("resources\\Pelado.png"));
 //		body = ImageIO.read(new File("resources\\2.png"));
 //		fruit = ImageIO.read(new File("resources\\swipl.png"));
 	}
 	
+	private void generarVectorDePosicionesValidas() {
+		this.posMapa = new int[(MAX_MAP / TAMAÑO) + 1];
+		this.posMapa[0] = 0;
+		for (int i = 1; i < this.posMapa.length; i++) {
+			this.posMapa[i] = this.posMapa[i - 1] + TAMAÑO;
+		}
+	}
+	
 	public void paintComponent(Graphics g) {
+		
+		int posX = this.posMapa[mapa.getSnake().getHeadPoint().getX()];
+		int posY = this.posMapa[mapa.getSnake().getHeadPoint().getY()];
+		
 		g.setColor(Color.GRAY);
-		g.fillOval((int) mapa.getSnake().getBody().get(0).getCentro().getX(), (int) mapa.getSnake().getBody().get(0).getCentro().getY(), (int) mapa.getSnake().getBody().get(0).getRadio(),
+		
+		
+		g.fillOval(posX , posY, (int) mapa.getSnake().getBody().get(0).getRadio(),
 				(int) mapa.getSnake().getBody().get(0).getRadio());
 		g.setColor(Color.LIGHT_GRAY);
 		for (int i = 1; i < mapa.getSnake().getBody().size(); i++) {
-			g.fillOval((int) mapa.getSnake().getBody().get(i).getCentro().getX(), (int) mapa.getSnake().getBody().get(i).getCentro().getY(), (int) mapa.getSnake().getBody().get(0).getRadio(),
+			posX = this.posMapa[mapa.getSnake().getBody().get(i).getCentro().getX()];
+			posY = this.posMapa[mapa.getSnake().getBody().get(i).getCentro().getY()];
+			
+			g.fillOval(posX, posY, (int) mapa.getSnake().getBody().get(0).getRadio(),
 					(int) mapa.getSnake().getBody().get(0).getRadio());
 		}
 		g.setColor(Color.RED);
-		g.fillOval(mapa.getFruta().getItem().getCentro().getX(), mapa.getFruta().getItem().getCentro().getY(), (int) mapa.getFruta().getItem().getRadio(), (int) mapa.getFruta().getItem().getRadio());
+		posX = this.posMapa[mapa.getFruta().getCirculo().getCentro().getX()];
+		posY = this.posMapa[mapa.getFruta().getCirculo().getCentro().getY()];
+		g.fillOval(posX, posY, (int) mapa.getFruta().getCirculo().getRadio(), (int) mapa.getFruta().getCirculo().getRadio());
 	}
 	
 	public MapaNormal getMapa() {

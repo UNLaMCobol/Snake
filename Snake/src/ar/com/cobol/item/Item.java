@@ -6,15 +6,15 @@ import ar.com.cobol.snake.Salamandra;
 
 public abstract class Item {
 
-	private Circulo item;
+	private Circulo circulo;
 
 	public Item(Circulo item){
-	    this.item = item;
+	    this.circulo = item;
     }
 
 	public void handleItem(Salamandra salamandra){}
 
-    public Circulo getItem() {
-        return item;
+    public Circulo getCirculo() {
+        return circulo;
     }
 }

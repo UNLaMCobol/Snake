@@ -39,4 +39,10 @@ public class Usuario {
 		this.password = password;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		Usuario user = (Usuario)obj;
+		return this.id == user.id;
+	}
+	
 }

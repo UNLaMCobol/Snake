@@ -70,12 +70,12 @@ public class Login extends JFrame {
 		btnRegistrate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Usuario cli = new Usuario(textFieldUsuario.getText(), passwordField.getText());
-				if(!Servidor.puedoRegistrarUser(cli))
+				if(!UsuarioController.puedoRegistrarUsuario(cli))
 					new PopupUserYaReg();
 				else if (passwordField.getText().equals("")) {
 					new PopupIngPw();
 				} else {
-					Servidor.registrarUser(cli);
+					UsuarioController.registrarUsuario(cli);
 					new PopupRegConEx();
 				}
 			}
@@ -107,13 +107,15 @@ public class Login extends JFrame {
 		btnIniciar.addActionListener(new ActionListener() {
 			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent arg0) {
-				User cli = new User(textFieldUsuario.getText(), passwordField.getText());
+				User cli = new Usuario(textFieldUsuario.getText(), passwordField.getText());
 
 				if(Servidor.loguearUser(cli)) {
 					try {
-						if(textFieldHost.getText().equals("") || textFieldHost.getText().contains(" "))
+						if(textFieldHost.getText().equals("") || textFieldHost.getText().contains(" ")) {
 							//new Chat(new Cliente(10000, "localhost", cli.getUser(), cli.getPass()));
 							new Salas(new Cliente(10000, "localhost", cli.getUser(), cli.getPass()));
+							
+						}	
 						else
 							//new Chat(new Cliente(10000, textFieldHost.getText(), cli.getUser(), cli.getPass()));
 							new Salas(new Cliente(10000, textFieldHost.getText(), cli.getUser(), cli.getPass()));

@@ -1,24 +1,29 @@
 package ar.com.cobol.hibernate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Sala {
 
 	private int id;
 	private String nombre;
 	private boolean privada;
+	private List<Usuario> usuarios;
 	
 	public Sala() {
-		
+		usuarios = new ArrayList<Usuario>();
 	}
 	
 	public Sala(String nombre, boolean privada) {
 		this.nombre = nombre;
 		this.privada = privada;
+		usuarios = new ArrayList<Usuario>();
 	}
 	
 	public Sala(int id, String nombre, boolean privada) {
 		this.id = id;
 		this.nombre = nombre;
 		this.privada = privada;
+		usuarios = new ArrayList<Usuario>();
 	}
 	
 	
@@ -43,4 +48,13 @@ public class Sala {
 		this.privada = privada;
 	}
 	
+	public void agregarUsuario(Usuario user) {
+		this.usuarios.add(user);
+	}
+	public List<Usuario> getUsuarios(){
+		return usuarios;
+	}
+	public void eliminarUsuario(Usuario user){
+		usuarios.remove(user);
+	}
 }

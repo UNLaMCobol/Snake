@@ -45,6 +45,5 @@ public class Manager {
 	
 	public List<Sala> mostrarSalasPrivadas(){
 		return salasPrivadas;
-	}
-	
+	}	
 }

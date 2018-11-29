@@ -29,6 +29,10 @@ public class Manager {
 		//MOSTRAR LA VENTANA PRINCIPAL QUE SE MUESTRA AL INICIAR LA APLICACION
 	}
 	
+	public void mostrarPopUpMalLogeo() {
+		//SI EL USUARIO INSERTA MAL SUS DATOS, SE MUESTRA UNA VENTANA PARA REPETIR LA ACCION
+	}
+
 	public void ingresarAUnaSalaPublica(Usuario user,String nameSala) {
 		for(Sala sala : this.salasPublicas) {
 			if(sala.getNombre().equals(nameSala)) {
